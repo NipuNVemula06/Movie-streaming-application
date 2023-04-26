@@ -1,0 +1,65 @@
+import React, { useState, useEffect } from "react";
+import "./Upcoming.css";
+import axios from "axios";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { Mousewheel, Scrollbar } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.min.css";
+import { MovieCard } from "../../components";
+
+const apikey = process.env.REACT_APP_API_SECRET_KEY;
+
+const Upcoming = () => {
+  const [upcoming, setUpcoming] = useState([]);
+
+  useEffect(() => {
+    const fetchUpcoming = async () => {
+      await axios
+        .get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apikey}`)
+        .then((response) => {
+          setUpcoming(response.data.results);
+        });
+    };
+
+    fetchUpcoming();
+  }, []);
+
+  return (
+    <div className="upcoming">
+      <div className="upcoming_topsection">
+        <span className="upcoming_heading">Upcoming Movies</span>
+        <span className="upcoming_seeall">See All</span>
+      </div>
+      <Swiper
+        spaceBetween={10}
+        slidesPerView={2}
+        scrollbar={{ draggable: true }}
+        mousewheel={true}
+        modules={[Mousewheel, Scrollbar]}
+        className="mySwiper"
+        breakpoints={{
+          640: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+          },
+        }}
+      >
+        {upcoming?.map((item) => (
+          <SwiperSlide key={item.id}>
+            <MovieCard
+              image={item.poster_path}
+              title={item.title}
+              id={item.id}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+};
+
+export default Upcoming;

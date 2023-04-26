@@ -1,0 +1,89 @@
+.banner {
+  background-color: #e9ecef;
+  height: 650px;
+  width: 100%;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.banner_content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.banner_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  filter: brightness(80%);
+}
+
+.banner_moviecontent {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  padding-left: 40px;
+  padding-top: 100px;
+}
+
+.banner_movietitle {
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.banner_moviedesc {
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  overflow: hidden;
+  width: 50%;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to display */
+  -webkit-box-orient: vertical;
+  max-height: 3.6em; /* height of two lines, adjust as needed */
+}
+
+.banner_button_container {
+  display: flex;
+  gap: 20px;
+}
+
+.banner_moviebutton {
+  background-color: #e50914;
+  color: white;
+  padding: 10px 20px;
+  font-weight: 500;
+  text-transform: capitalize;
+  cursor: pointer;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.banner_moviebutton1 {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-weight: 500;
+  text-transform: capitalize;
+  cursor: pointer;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

@@ -1,0 +1,24 @@
+.popular {
+  display: grid;
+  gap: 25px;
+}
+
+.popular_topsection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.popular_heading {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.popular_seeall {
+  background-color: #e9ecef;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.mySwiper {
+  width: 100%;
+}

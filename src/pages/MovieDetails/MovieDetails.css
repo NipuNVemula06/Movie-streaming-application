@@ -1,0 +1,36 @@
+.moviedetails {
+  width: 100%;
+  display: grid;
+  gap: 30px;
+}
+
+.moviedetails_backdrop_image {
+  width: 100%;
+}
+
+.moviedetails_genres {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.moviedetails_genre {
+  background-color: #e9ecef;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #14213d;
+  border-radius: 2px;
+}
+
+.moviedetails_title {
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #14213d;
+}
+
+.moviedetails_overview {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

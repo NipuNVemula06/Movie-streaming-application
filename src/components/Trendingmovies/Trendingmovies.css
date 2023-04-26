@@ -1,0 +1,41 @@
+.trending {
+  display: grid;
+  gap: 25px;
+}
+
+.trending_topsection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.trending_heading {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.trending_seeall {
+  background-color: #e9ecef;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.trending_chevron_container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: end;
+}
+
+.trending_chevronbutton {
+  background-color: #e9ecef;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.mySwiper {
+  width: 100%;
+}

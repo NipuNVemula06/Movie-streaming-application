@@ -1,0 +1,45 @@
+Trending movies and series 
+
+day - https://api.themoviedb.org/3/trending/all/day?api_key=092889b11e0f132df977b773b5346dd4
+week - https://api.themoviedb.org/3/trending/all/week?api_key=092889b11e0f132df977b773b5346dd4
+
+
+ONLY MOVIES  - https://api.themoviedb.org/3/trending/movie/day?api_key=092889b11e0f132df977b773b5346dd4
+ONLY TV Series  - https://api.themoviedb.org/3/trending/tv/day?api_key=092889b11e0f132df977b773b5346dd4
+
+
+--------------------------------------------------------------
+
+Popular movies -- https://api.themoviedb.org/3/movie/popular?api_key=092889b11e0f132df977b773b5346dd4
+
+Popular tv -- https://api.themoviedb.org/3/tv/popular?api_key=092889b11e0f132df977b773b5346dd4
+
+
+----------------------------------------------------------------
+
+Upcoming movies - https://api.themoviedb.org/3/movie/upcoming?api_key=092889b11e0f132df977b773b5346dd4
+
+&language=en-US&page=1 == this is optional
+
+-------------------------------------------------------------------
+top rated 
+
+movies --https://api.themoviedb.org/3/movie/top_rated?api_key=092889b11e0f132df977b773b5346dd4
+
+series -- https://api.themoviedb.org/3/tv/top_rated?api_key=092889b11e0f132df977b773b5346dd4
+
+
+---------------------------------------------------------------------
+
+recomendation movies for any selected movies 
+
+movie - https://api.themoviedb.org/3/movie/{movie_id}/recommendations?api_key=092889b11e0f132df977b773b5346dd4
+tv -https://api.themoviedb.org/3/tv/{tv_id}/recommendations?api_key=092889b11e0f132df977b773b5346dd4
+
+
+-------------------------------------------------------------
+
+genres
+
+movies = https://api.themoviedb.org/3/genre/movie/list?api_key=092889b11e0f132df977b773b5346dd4&language=en-US
+tv = https://api.themoviedb.org/3/genre/tv/list?api_key=092889b11e0f132df977b773b5346dd4&language=en-US
