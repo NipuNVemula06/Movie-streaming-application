@@ -7,8 +7,20 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const [headerbackground, setHeaderbackground] = useState(false);
+
+  const changeBackground = () => {
+    if (window.scrollY >= 70) {
+      setHeaderbackground(true);
+    } else {
+      setHeaderbackground(false);
+    }
+  };
+
+  window.addEventListener("scroll", changeBackground);
+
   return (
-    <header className="header">
+    <header className={`${headerbackground ? "header header_bg" : "header"}`}>
       <NavLink to="/" className="header_leftsection">
         <span>Stream</span>
         <span className="header_logo">Flix</span>
@@ -57,11 +69,6 @@ const navlinks = [
     link: "/tvseries",
   },
   {
-    id: 3,
-    title: "Cartoon",
-    link: "/",
-  },
-  {
     id: 4,
     title: "Genres",
     link: "/genres",
@@ -69,6 +76,6 @@ const navlinks = [
   {
     id: 5,
     title: "My List",
-    link: "/",
+    link: "/mylist",
   },
 ];

@@ -2,21 +2,26 @@ import React from "react";
 import "./Home.css";
 import {
   Banner,
-  Popularmovies,
   Toprated,
-  Trendingmovies,
+  Trending,
   Upcoming,
+  Popular,
+  Animated,
 } from "../../components";
+import { motion } from "framer-motion";
 
 const Home = () => {
   return (
-    <div className="home">
+    <motion.div>
       <Banner />
-      <Trendingmovies />
-      <Popularmovies />
-      <Toprated />
-      <Upcoming />
-    </div>
+      <div className="home">
+        <Trending />
+        <Popular />
+        <Animated />
+        <Toprated />
+        <Upcoming />
+      </div>
+    </motion.div>
   );
 };
 

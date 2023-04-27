@@ -1,11 +1,103 @@
 .moviedetails {
   width: 100%;
   display: grid;
-  gap: 30px;
+  /* gap: 30px; */
+  position: relative;
+  color: var(--primary-color);
+}
+
+.moviedetails_imagecontainer {
+  position: relative;
+  width: 100%;
+  height: 700px;
 }
 
 .moviedetails_backdrop_image {
   width: 100%;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(30%);
+}
+
+.moviedetails_titleonimagecontainer {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.moviedetails_titleonimage {
+  font-family: "Londrina Outline", cursive;
+  color: var(--main-bg);
+  font-size: 60px;
+}
+
+.moviedetails_container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  display: grid;
+  gap: 20px;
+}
+
+.moviedetails_content {
+  display: flex;
+  gap: 30px;
+}
+
+.moviedetails_postercontainer {
+  display: flex;
+  margin-top: -120px;
+  z-index: 10;
+  width: fit-content;
+}
+
+.moviedetails_poster {
+  height: 420px;
+}
+
+.moviedetails_contentcontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 1rem;
+}
+
+.moviedetails_titlecontainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.moviedetails_title {
+  font-size: 24px;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.moviedetails_releasedate {
+  font-weight: 600;
+}
+
+.moviedetails_runtimecontainer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.moviedetails_desc {
+  font-size: 15px;
+  font-weight: 500;
+  padding-right: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: wrap;
 }
 
 .moviedetails_genres {
@@ -15,22 +107,43 @@
 }
 
 .moviedetails_genre {
-  background-color: #e9ecef;
+  background-color: var(--third-color);
   padding: 8px 12px;
   cursor: pointer;
-  color: #14213d;
+  color: var(--fourth-color);
   border-radius: 2px;
+  font-weight: 600;
+  font-size: 14px;
 }
 
-.moviedetails_title {
-  font-size: 24px;
-  font-weight: 700;
-  text-transform: capitalize;
-  color: #14213d;
-}
-
-.moviedetails_overview {
+.moviedetails_buttons {
   display: flex;
-  flex-direction: column;
   gap: 20px;
+  align-items: center;
+}
+.moviedetails_watchtrailerbutton {
+  background-color: var(--secondary-color);
+  color: var(--main-bg);
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: fit-content;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.moviedetails_bookmark,
+.moviedetails_share {
+  border: 1px solid var(--third-color);
+  padding: 10px;
+  cursor: pointer;
+}
+
+.moviedetails_bookmarkicon,
+.moviedetails_shareicon {
+  font-weight: bold;
+  color: var(--fourth-color);
 }

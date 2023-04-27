@@ -2,7 +2,7 @@ import React from "react";
 import "./Banner.css";
 import { BsFillPlayFill } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper";
+import { Autoplay, Scrollbar } from "swiper";
 import "swiper/swiper-bundle.min.css";
 
 const Banner = () => {
@@ -10,15 +10,12 @@ const Banner = () => {
     <div className="banner">
       <Swiper
         spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
         scrollbar={{ draggable: true }}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
         }}
-        modules={[Pagination, Autoplay]}
+        modules={[Autoplay, Scrollbar]}
       >
         {movies.map((item) => (
           <SwiperSlide key={item.id}>

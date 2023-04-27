@@ -1,0 +1,30 @@
+.recommendation {
+  display: grid;
+  gap: 20px;
+  width: 100%;
+}
+
+.recommendation_heading {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+
+.recommendation_container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.recommendation_content {
+  /* width: 180px; */
+  height: 280px;
+  cursor: pointer;
+}
+
+.recommendation_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}

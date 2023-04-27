@@ -1,5 +1,4 @@
 .banner {
-  background-color: #e9ecef;
   height: 650px;
   width: 100%;
 }
@@ -35,17 +34,16 @@
   justify-content: center;
   padding-left: 40px;
   padding-top: 100px;
+  color: var(--main-bg);
 }
 
 .banner_movietitle {
-  color: white;
   font-size: 30px;
   font-weight: 700;
   text-transform: capitalize;
 }
 
 .banner_moviedesc {
-  color: white;
   font-size: 15px;
   font-weight: 500;
   overflow: hidden;
@@ -63,8 +61,7 @@
 }
 
 .banner_moviebutton {
-  background-color: #e50914;
-  color: white;
+  background-color: var(--secondary-color);
   padding: 10px 20px;
   font-weight: 500;
   text-transform: capitalize;
@@ -76,8 +73,8 @@
 }
 
 .banner_moviebutton1 {
-  border: 1px solid #ffffff;
-  color: #ffffff;
+  border: 1px solid var(--main-bg);
+  color: var(--main-bg);
   padding: 10px 20px;
   font-weight: 500;
   text-transform: capitalize;

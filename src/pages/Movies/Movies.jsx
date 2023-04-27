@@ -1,8 +1,9 @@
 import React from "react";
 import "./Movies.css";
+import { motion } from "framer-motion";
 
 const Movies = () => {
-  return <div>Movies</div>;
+  return <motion.div>Movies</motion.div>;
 };
 
 export default Movies;

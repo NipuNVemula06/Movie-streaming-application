@@ -1,20 +1,20 @@
-.toprated {
+.animated {
   display: grid;
   gap: 25px;
 }
 
-.toprated_topsection {
+.animated_topsection {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.toprated_heading {
+.animated_heading {
   font-size: 20px;
   font-weight: 600;
   color: var(--primary-color);
 }
 
-.toprated_seeall {
+.animated_seeall {
   padding: 8px 12px;
   cursor: pointer;
   color: var(--fourth-color);

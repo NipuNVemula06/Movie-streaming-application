@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
-import "./Popularmovies.css";
+import "./Popular.css";
 import axios from "axios";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Mousewheel, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
-import { MovieCard } from "../../components";
+import { MovieCard } from "..";
 
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
 
-const Popularmovies = () => {
+const Popular = () => {
   const [popular, setPopular] = useState([]);
 
   useEffect(() => {
-    const fetchPopularMovies = async () => {
+    const fetchPopular = async () => {
       await axios
         .get(`https://api.themoviedb.org/3/movie/popular?api_key=${apikey}`)
         .then((response) => {
@@ -21,13 +20,13 @@ const Popularmovies = () => {
         });
     };
 
-    fetchPopularMovies();
+    fetchPopular();
   }, []);
 
   return (
     <div className="popular">
       <div className="popular_topsection">
-        <span className="popular_heading">Popular Movies</span>
+        <span className="popular_heading">Popular Movies </span>
         <span className="popular_seeall">See All</span>
       </div>
       <Swiper
@@ -54,6 +53,7 @@ const Popularmovies = () => {
               image={item.poster_path}
               title={item.title}
               id={item.id}
+              mediaType={item.media_type}
             />
           </SwiperSlide>
         ))}
@@ -62,4 +62,4 @@ const Popularmovies = () => {
   );
 };
 
-export default Popularmovies;
+export default Popular;

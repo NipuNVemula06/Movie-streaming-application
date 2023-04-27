@@ -1,33 +1,35 @@
 import React, { useState, useEffect } from "react";
-import "./Upcoming.css";
+import "./Animated.css";
 import axios from "axios";
 import { Mousewheel, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
-import { MovieCard } from "../../components";
+import { MovieCard } from "..";
 
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
 
-const Upcoming = () => {
-  const [upcoming, setUpcoming] = useState([]);
+const Animated = () => {
+  const [animated, setAnimated] = useState([]);
 
   useEffect(() => {
-    const fetchUpcoming = async () => {
+    const fetchAnimated = async () => {
       await axios
-        .get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apikey}`)
+        .get(
+          `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&with_genres=16`
+        )
         .then((response) => {
-          setUpcoming(response.data.results);
+          console.log(response.data.results);
+          setAnimated(response.data.results);
         });
     };
 
-    fetchUpcoming();
+    fetchAnimated();
   }, []);
-
   return (
-    <div className="upcoming">
-      <div className="upcoming_topsection">
-        <span className="upcoming_heading">Upcoming Movies</span>
-        <span className="upcoming_seeall">See All</span>
+    <div className="animated">
+      <div className="animated_topsection">
+        <span className="animated_heading">Animation Shows</span>
+        <span className="animated_seeall">See All</span>
       </div>
       <Swiper
         spaceBetween={10}
@@ -47,7 +49,7 @@ const Upcoming = () => {
           },
         }}
       >
-        {upcoming?.map((item) => (
+        {animated?.map((item) => (
           <SwiperSlide key={item.id}>
             <MovieCard
               image={item.poster_path}
@@ -62,4 +64,4 @@ const Upcoming = () => {
   );
 };
 
-export default Upcoming;
+export default Animated;

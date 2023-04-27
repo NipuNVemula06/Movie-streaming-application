@@ -1,22 +1,26 @@
-.popular {
+.trending {
   display: grid;
   gap: 25px;
 }
 
-.popular_topsection {
+.trending_topsection {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.popular_heading {
+.trending_heading {
   font-size: 20px;
   font-weight: 600;
+  color: var(--primary-color);
 }
 
-.popular_seeall {
-  background-color: #e9ecef;
+.trending_seeall {
   padding: 8px 12px;
   cursor: pointer;
+  color: var(--fourth-color);
+  background-color: var(--third-color);
+  font-weight: 600;
+  font-size: 15px;
 }
 
 .mySwiper {

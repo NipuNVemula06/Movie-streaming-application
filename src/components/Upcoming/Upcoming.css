@@ -11,10 +11,18 @@
 .upcoming_heading {
   font-size: 20px;
   font-weight: 600;
+  color: var(--primary-color);
 }
 
 .upcoming_seeall {
-  background-color: #e9ecef;
   padding: 8px 12px;
   cursor: pointer;
+  color: var(--fourth-color);
+  background-color: var(--third-color);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.mySwiper {
+  width: 100%;
 }

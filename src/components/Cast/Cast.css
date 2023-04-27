@@ -1,0 +1,50 @@
+.cast {
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cast_heading {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.cast_starring,
+.cast_director {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+
+.cast_container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.cast_content {
+  display: grid;
+  gap: 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  width: 180px;
+}
+
+.cast_image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.cast_name {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.cast_character {
+  font-size: 15px;
+  text-overflow: ellipsis;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}

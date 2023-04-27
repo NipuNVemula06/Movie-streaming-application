@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
-import "./Trendingmovies.css";
+import "./Trending.css";
 import axios from "axios";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Mousewheel, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
-import { MovieCard } from "../../components";
+import { MovieCard } from "..";
 
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
 
-const Trendingmovies = () => {
+const Trending = () => {
   const [trending, setTrending] = useState([]);
 
   useEffect(() => {
-    const fetchTrendingMovies = async () => {
+    const fetchTrending = async () => {
       await axios
         .get(
           `https://api.themoviedb.org/3/trending/movie/day?api_key=${apikey}`
@@ -23,12 +22,12 @@ const Trendingmovies = () => {
         });
     };
 
-    fetchTrendingMovies();
+    fetchTrending();
   }, []);
   return (
     <div className="trending">
       <div className="trending_topsection">
-        <span className="trending_heading">Trending Movies</span>
+        <span className="trending_heading">Trending Now</span>
         <span className="trending_seeall">See All</span>
       </div>
       <Swiper
@@ -55,24 +54,13 @@ const Trendingmovies = () => {
               image={item.poster_path}
               title={item.title}
               id={item.id}
+              mediaType={item.media_type}
             />
           </SwiperSlide>
         ))}
       </Swiper>
-      {/* <div className="trending_chevron_container">
-        <span className="trending_chevronbutton">
-          <FiChevronLeft />
-        </span>
-        <span className="trending_chevronbutton">
-          <FiChevronRight />
-        </span>
-      </div> */}
     </div>
   );
 };
 
-export default Trendingmovies;
-
-{
-  /* <div className="trending_movies_container"></div> */
-}
+export default Trending;
