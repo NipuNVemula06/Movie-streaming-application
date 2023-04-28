@@ -3,10 +3,83 @@
   color: var(--primary-color);
 }
 
-.genes_container {
+.genres_container {
   max-width: 1280px;
   margin: 0 auto;
   width: 100%;
   display: grid;
   gap: 20px;
+  padding: 10px;
+}
+
+.genres_topsection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.genres_heading {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+select {
+  appearance: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  flex: 1;
+  padding: 0 1em;
+  color: var(--fourth-color);
+  background-color: var(--third-color);
+  background-image: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+option {
+  padding: 10px;
+}
+
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select wrapper */
+.genres_mediatype {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  border-radius: 0.25em;
+  overflow: hidden;
+}
+/* Arrow */
+.genres_mediatype::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: var(--fourth-color);
+  pointer-events: none;
+}
+
+.genres_listtype {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.genre_bottomsection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.genres_listcontainer {
+  margin-top: 20px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
 }

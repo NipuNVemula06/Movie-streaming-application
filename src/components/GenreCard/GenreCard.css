@@ -1,1 +1,19 @@
+.genrecard {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
+.genrecard_button {
+  outline: none;
+  border: none;
+  background-color: var(--main-bg);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: var(--third-color);
+  padding: 4px 6px;
+  border-radius: 2px;
+  color: var(--primary-color);
+}
