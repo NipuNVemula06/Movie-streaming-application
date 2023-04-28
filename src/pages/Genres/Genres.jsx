@@ -51,6 +51,7 @@ const Genres = () => {
         <div>
           <GenreCard
             mediaType={mediatype}
+            genretype={genretype}
             setGenreType={setGenreType}
             setGenreID={setGenreID}
           />
@@ -80,6 +81,7 @@ const Genres = () => {
                 count={totalPage}
                 onChange={handlePageChange}
                 shape="rounded"
+                size="small"
                 boundaryCount={1}
                 siblingCount={1}
               />

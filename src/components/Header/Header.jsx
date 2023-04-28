@@ -6,7 +6,7 @@ import { MdOutlineClose } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [headerbackground, setHeaderbackground] = useState(false);
 
   const changeBackground = () => {
@@ -40,6 +40,16 @@ const Header = () => {
                 className="header_nav_close_icon"
               />
             </div>
+          )}
+
+          {open && (
+            <NavLink
+              to="/"
+              onClick={() => setOpen(false)}
+              className="header_navlink"
+            >
+              <li>Home</li>
+            </NavLink>
           )}
 
           {navlinks.map((item) => (

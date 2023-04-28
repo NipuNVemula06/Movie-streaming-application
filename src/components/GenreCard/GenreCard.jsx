@@ -4,9 +4,8 @@ import axios from "axios";
 
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
 
-const GenreCard = ({ mediaType, setGenreType, setGenreID }) => {
+const GenreCard = ({ mediaType, setGenreType, genretype, setGenreID }) => {
   const [genres, setGenres] = useState([]);
-  console.log(mediaType);
 
   useEffect(() => {
     const fetchGenres = async () => {
@@ -30,7 +29,11 @@ const GenreCard = ({ mediaType, setGenreType, setGenreID }) => {
       {genres?.map((genre) => (
         <button
           onClick={() => handleGenre(genre.id, genre.name)}
-          className="genrecard_button"
+          className={`${
+            genretype === genre.name
+              ? "genrecard_button genrecard_active "
+              : "genrecard_button"
+          }`}
           key={genre.id}
         >
           {genre.name}

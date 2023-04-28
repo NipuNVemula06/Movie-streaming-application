@@ -10,10 +10,15 @@
   border: none;
   background-color: var(--main-bg);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   background-color: var(--third-color);
-  padding: 4px 6px;
+  padding: 6px 8px;
   border-radius: 2px;
   color: var(--fourth-color);
+}
+
+.genrecard_active {
+  background-color: var(--fourth-color);
+  color: var(--third-color);
 }

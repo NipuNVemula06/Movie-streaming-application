@@ -40,6 +40,7 @@ const Movies = () => {
               count={totalPage}
               onChange={handlePageChange}
               shape="rounded"
+              size="small"
               boundaryCount={1}
               siblingCount={1}
             />

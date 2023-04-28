@@ -1,0 +1,12 @@
+.mylist {
+  margin-top: 70px;
+  display: grid;
+  gap: 20px;
+}
+
+.mylist_container {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 10px;
+}

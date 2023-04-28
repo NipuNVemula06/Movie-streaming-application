@@ -56,8 +56,8 @@ const Cast = ({ id, mediatype }) => {
           className="cast_image"
           variant="square"
           sx={{
-            width: "180px",
-            height: "180px",
+            width: "160px",
+            height: "160px",
           }}
         />
         <span className="cast_name">{director.name}</span>
@@ -72,8 +72,8 @@ const Cast = ({ id, mediatype }) => {
               className="cast_image"
               variant="square"
               sx={{
-                width: "180px",
-                height: "180px",
+                width: "160px",
+                height: "160px",
               }}
             />
             <span className="cast_name">{member.name}</span>
