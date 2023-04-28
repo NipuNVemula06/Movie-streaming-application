@@ -80,6 +80,43 @@ select::-ms-expand {
 .genres_listcontainer {
   margin-top: 20px;
   display: grid;
-  gap: 20px;
+  gap: 15px;
   grid-template-columns: repeat(4, 1fr);
+}
+
+@media screen and (max-width: 1024px) {
+  .genres_listcontainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .genres_heading {
+    font-size: 22px;
+  }
+  .genres_listtype {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .genres_topsection {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .genre_bottomsection {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .genres_listcontainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .genres_mediatype {
+    width: 20em;
+    height: 2em;
+    border-radius: 0.25em;
+  }
+  .genres_mediatype::after {
+    padding: 0.5em;
+  }
 }

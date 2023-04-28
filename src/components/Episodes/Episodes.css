@@ -1,0 +1,49 @@
+.episodes {
+  display: grid;
+  gap: 20px;
+}
+
+.episodes_topsection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.episodes_container {
+  display: grid;
+  gap: 20px;
+}
+
+.seasons {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  border-radius: 0.25em;
+  overflow: hidden;
+}
+/* Arrow */
+.seasons::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: var(--fourth-color);
+  pointer-events: none;
+}
+
+@media screen and (max-width: 425px) {
+  .episodes_topsection {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .seasons {
+    width: 20em;
+    height: 2em;
+    border-radius: 0.25em;
+  }
+  .seasons::after {
+    padding: 0.5em;
+  }
+}

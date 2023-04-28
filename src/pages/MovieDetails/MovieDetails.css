@@ -1,7 +1,6 @@
 .moviedetails {
   width: 100%;
   display: grid;
-  /* gap: 30px; */
   position: relative;
   color: var(--primary-color);
 }
@@ -42,6 +41,7 @@
   padding-bottom: 10px;
   display: grid;
   gap: 20px;
+  width: 100%;
 }
 
 .moviedetails_content {
@@ -81,6 +81,7 @@
 
 .moviedetails_releasedate {
   font-weight: 600;
+  font-size: 22px;
 }
 
 .moviedetails_runtimecontainer {
@@ -146,4 +147,59 @@
 .moviedetails_shareicon {
   font-weight: bold;
   color: var(--fourth-color);
+}
+
+/* responsive CSS */
+
+@media screen and (max-width: 1024px) {
+  .moviedetails_container {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .moviedetails_postercontainer {
+    margin-top: -80px;
+  }
+  .moviedetails_desc {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to display */
+    -webkit-box-orient: vertical;
+    max-height: 3.7em; /* height of two lines, adjust as needed */
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .moviedetails_imagecontainer,
+  .moviedetails_titleonimagecontainer {
+    height: 400px;
+    text-align: center;
+  }
+
+  .moviedetails_titleonimage {
+    font-size: 30px;
+  }
+  .moviedetails_container {
+    padding: 10px;
+  }
+
+  .moviedetails_desc {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 7; /* number of lines to display */
+    -webkit-box-orient: vertical;
+    max-height: 12em; /* height of two lines, adjust as needed */
+  }
+
+  .moviedetails_postercontainer {
+    display: none;
+  }
+
+  .moviedetails_title {
+    font-size: 22px;
+  }
+  .moviedetails_releasedate {
+    font-size: 20px;
+  }
 }

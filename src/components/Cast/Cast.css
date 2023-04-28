@@ -48,3 +48,11 @@
   overflow: hidden;
   white-space: nowrap;
 }
+
+@media screen and (max-width: 420px) {
+  .cast_container {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -12,6 +12,7 @@ const apikey = process.env.REACT_APP_API_SECRET_KEY;
 const MovieDetails = () => {
   const { id } = useParams();
   const location = useLocation();
+  const media_type = location.state.media;
   const [movie, setMovie] = useState([]);
   const [genres, setGenres] = useState([]);
   const [watchtrailer, setWatchTrailer] = useState(false);
@@ -63,9 +64,12 @@ const MovieDetails = () => {
           </div>
           <div className="moviedetails_contentcontainer">
             <div className="moviedetails_titlecontainer">
-              <span className="moviedetails_title">{movie.title}</span>
-              <span className="moviedetails_releasedate">
-                ( {movie.release_date?.split("-")[0]} )
+              <span className="moviedetails_title">
+                {movie.title} -
+                <span className="moviedetails_releasedate">
+                  {" "}
+                  {movie.release_date?.split("-")[0]}
+                </span>
               </span>
             </div>
             <div className="moviedetails_runtimecontainer">
@@ -97,13 +101,19 @@ const MovieDetails = () => {
           </div>
         </div>
         <div>
-          <Cast id={id} />
+          <Cast id={id} mediatype={media_type} />
         </div>
-        <div>
-          <Recommendation id={id} />
-        </div>
+        {/* <div>
+          <Recommendation id={id} mediatype={media_type} />
+        </div> */}
       </div>
-      {watchtrailer && <Trailer id={id} setWatchTrailer={setWatchTrailer} />}
+      {watchtrailer && (
+        <Trailer
+          id={id}
+          setWatchTrailer={setWatchTrailer}
+          mediatype={media_type}
+        />
+      )}
     </motion.div>
   );
 };

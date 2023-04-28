@@ -72,6 +72,10 @@
   gap: 10px;
 }
 
+.banner_button_icon {
+  font-size: 24px;
+}
+
 .banner_moviebutton1 {
   border: 1px solid var(--main-bg);
   color: var(--main-bg);
@@ -83,4 +87,37 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+/* responsive CSS */
+
+@media screen and (max-width: 768px) {
+  .banner_moviedesc {
+    font-size: 14px;
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .banner {
+    height: 380px;
+  }
+  .banner_moviecontent {
+    padding-left: 10px;
+    padding-top: 50px;
+  }
+  .banner_movietitle {
+    font-size: 26px;
+  }
+  .banner_moviedesc {
+    font-size: 14px;
+    width: 90%;
+  }
+  .banner_moviebutton,
+  .banner_moviebutton1 {
+    font-size: 15px;
+  }
+  .banner_button_icon {
+    font-size: 18px;
+  }
 }

@@ -88,6 +88,7 @@ const Genres = () => {
           <div className="genres_listcontainer">
             {content?.map((item) => (
               <MovieCard
+                key={item.id}
                 image={item.poster_path}
                 title={item.title}
                 id={item.id}

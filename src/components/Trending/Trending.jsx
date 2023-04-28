@@ -14,9 +14,7 @@ const Trending = () => {
   useEffect(() => {
     const fetchTrending = async () => {
       await axios
-        .get(
-          `https://api.themoviedb.org/3/trending/movie/day?api_key=${apikey}`
-        )
+        .get(`https://api.themoviedb.org/3/trending/all/day?api_key=${apikey}`)
         .then((response) => {
           setTrending(response.data.results);
         });

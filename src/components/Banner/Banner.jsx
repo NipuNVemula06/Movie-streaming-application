@@ -26,11 +26,11 @@ const Banner = () => {
                 <span className="banner_moviedesc">{item.description}</span>
                 <div className="banner_button_container">
                   <span className="banner_moviebutton">
-                    <BsFillPlayFill size={24} />
+                    <BsFillPlayFill className="banner_button_icon" />
                     Play
                   </span>
                   <span className="banner_moviebutton1">
-                    <BsFillPlayFill size={24} />
+                    <BsFillPlayFill className="banner_button_icon" />
                     Trailer
                   </span>
                 </div>

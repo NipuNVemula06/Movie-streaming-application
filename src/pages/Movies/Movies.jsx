@@ -48,6 +48,7 @@ const Movies = () => {
         <div className="movies_list">
           {movies?.map((item) => (
             <MovieCard
+              key={item.id}
               image={item.poster_path}
               title={item.title}
               id={item.id}

@@ -12,3 +12,5 @@ export { default as Recommendation } from "./Recommendation/Recommendation";
 export { default as Splashscreen } from "./Splashscreen/Splashscreen";
 export { default as Trailer } from "./Trailer/Trailer";
 export { default as GenreCard } from "./GenreCard/GenreCard";
+export { default as Episodes } from "./Episodes/Episodes";
+export { default as EpisodeCard } from "./EpisodeCard/EpisodeCard";

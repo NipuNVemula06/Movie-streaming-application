@@ -37,16 +37,21 @@
   white-space: nowrap;
 }
 
+/* responsive CSS */
+@media screen and (max-width: 1024px) {
+  .moviecard {
+    height: 420px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .moviecard {
+    height: 350px;
+  }
+}
+
 @media screen and (max-width: 420px) {
   .moviecard {
     height: 280px;
-  }
-  .movie_content {
-    height: 60px;
-    left: 10px;
-  }
-
-  .movie_title {
-    font-size: 14px;
   }
 }

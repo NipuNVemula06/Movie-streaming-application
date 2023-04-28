@@ -49,6 +49,7 @@ const Tvseries = () => {
         <div className="series_list">
           {series?.map((item) => (
             <MovieCard
+              key={item.id}
               image={item.poster_path}
               title={item.title}
               id={item.id}

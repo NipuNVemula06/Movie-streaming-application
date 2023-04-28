@@ -7,7 +7,20 @@ const MovieCard = ({ image, title, id, mediaType }) => {
   const navigate = useNavigate();
 
   const gotoMovieDetailsPage = () => {
-    navigate(`/movie/${id}`);
+    if (mediaType === "movie") {
+      navigate(`/movie/${id}`, {
+        state: {
+          media: mediaType,
+        },
+      });
+    }
+    if (mediaType === "tv") {
+      navigate(`/series/${id}`, {
+        state: {
+          media: mediaType,
+        },
+      });
+    }
   };
   return (
     <div className="moviecard" onClick={gotoMovieDetailsPage}>

@@ -5,7 +5,7 @@ import { Avatar } from "@mui/material";
 
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
 
-const Cast = ({ id }) => {
+const Cast = ({ id, mediatype }) => {
   const [cast, setCast] = useState([]);
   const [director, setDirector] = useState([]);
   const baseURL = "http://image.tmdb.org/t/p/original";
@@ -14,7 +14,7 @@ const Cast = ({ id }) => {
     const fetchCastDetails = async () => {
       axios
         .get(
-          `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apikey}`
+          `https://api.themoviedb.org/3/${mediatype}/${id}/credits?api_key=${apikey}`
         )
         .then((response) => {
           // GET THE FIRST 5 MAIN CAST MEMBERS
@@ -25,7 +25,7 @@ const Cast = ({ id }) => {
               id: member.id,
               name: member.name,
               character: member.character,
-              profilePath: member.profile_path,
+              profilePath: member?.profile_path,
             }));
           setCast(mainCast);
 

@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
 const baseURL = "http://image.tmdb.org/t/p/original";
 
-const Recommendation = ({ id }) => {
+const Recommendation = ({ id, mediatype }) => {
   const [recommendation, setRecommendation] = useState([]);
   const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ const Recommendation = ({ id }) => {
     const fetchRecommendation = async () => {
       await axios
         .get(
-          `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${apikey}`
+          `https://api.themoviedb.org/3/${mediatype}/${id}/recommendations?api_key=${apikey}`
         )
         .then((response) => {
           setRecommendation(response.data.results);
@@ -26,7 +26,7 @@ const Recommendation = ({ id }) => {
     fetchRecommendation();
   }, []);
 
-  const handleClick = (id) => {
+  const handleClick = (id, mediatype) => {
     navigate(`/movie/${id}`);
   };
   return (
@@ -54,7 +54,7 @@ const Recommendation = ({ id }) => {
           <SwiperSlide key={item.id}>
             <div
               className="recommendation_content"
-              onClick={() => handleClick(item.id)}
+              onClick={() => handleClick(item.id, item.media_type)}
             >
               <img
                 src={`${baseURL}${item.poster_path}`}

@@ -1,0 +1,196 @@
+.seriesdetails {
+  width: 100%;
+  display: grid;
+  position: relative;
+  color: var(--primary-color);
+}
+
+.seriesdetails_imagecontainer {
+  position: relative;
+  width: 100%;
+  height: 700px;
+}
+
+.seriesdetails_backdrop_image {
+  width: 100%;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(30%);
+}
+
+.seriesdetails_titleonimagecontainer {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.seriesdetails_titleonimage {
+  font-family: "Londrina Outline", cursive;
+  color: var(--main-bg);
+  font-size: 60px;
+}
+
+.seriesdetails_container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  display: grid;
+  width: 100%;
+  gap: 20px;
+}
+
+.seriesdetails_content {
+  display: flex;
+  gap: 30px;
+}
+
+.seriesdetails_postercontainer {
+  display: flex;
+  margin-top: -120px;
+  z-index: 10;
+  width: fit-content;
+}
+
+.seriesdetails_poster {
+  height: 420px;
+}
+
+.seriesdetails_contentcontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 1rem;
+}
+
+.seriesdetails_titlecontainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.seriesdetails_title {
+  font-size: 24px;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.seriesdetails_releasedate {
+  font-weight: 600;
+}
+
+.seriesdetails_genres {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.seriesdetails_genre {
+  background-color: var(--third-color);
+  padding: 8px 12px;
+  cursor: pointer;
+  color: var(--fourth-color);
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.seriesdetails_desc {
+  font-size: 15px;
+  font-weight: 500;
+  padding-right: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: wrap;
+}
+
+.seriesdetails_buttons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.seriesdetails_watchtrailerbutton {
+  background-color: var(--secondary-color);
+  color: var(--main-bg);
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: fit-content;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.seriesdetails_bookmark,
+.seriesdetails_share {
+  border: 1px solid var(--third-color);
+  padding: 10px;
+  cursor: pointer;
+}
+
+.seriesdetails_bookmarkicon,
+.seriesdetails_shareicon {
+  font-weight: bold;
+  color: var(--fourth-color);
+}
+
+/* responsive CSS */
+
+@media screen and (max-width: 1024px) {
+  .seriesdetails_container {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .seriesdetails_postercontainer {
+    margin-top: -80px;
+  }
+  .seriesdetails_desc {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to display */
+    -webkit-box-orient: vertical;
+    max-height: 3.7em; /* height of two lines, adjust as needed */
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .seriesdetails_imagecontainer,
+  .seriesdetails_titleonimagecontainer {
+    height: 400px;
+    text-align: center;
+  }
+
+  .seriesdetails_titleonimage {
+    font-size: 30px;
+  }
+  .seriesdetails_container {
+    padding: 10px;
+  }
+
+  .seriesdetails_desc {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 7; /* number of lines to display */
+    -webkit-box-orient: vertical;
+    max-height: 12em; /* height of two lines, adjust as needed */
+  }
+
+  .seriesdetails_postercontainer {
+    display: none;
+  }
+
+  .seriesdetails_title {
+    font-size: 22px;
+  }
+  .seriesdetails_releasedate {
+    font-size: 20px;
+  }
+}

@@ -15,7 +15,6 @@ const GenreCard = ({ mediaType, setGenreType, setGenreID }) => {
           `https://api.themoviedb.org/3/genre/${mediaType}/list?api_key=${apikey}`
         )
         .then((response) => {
-          console.log(response.data.genres);
           setGenres(response.data.genres);
         });
     };

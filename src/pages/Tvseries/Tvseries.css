@@ -43,3 +43,28 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
 }
+
+/* responsive CSS */
+
+@media screen and (max-width: 1024px) {
+  .series_list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .series_heading {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .series_topsection {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .series_list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
