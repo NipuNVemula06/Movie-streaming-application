@@ -1,0 +1,44 @@
+.trailer {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trailer_container {
+  width: 600px;
+  height: 350px;
+  background-color: var(--main-bg);
+  border-radius: 2px;
+  padding: 10px;
+}
+.trailer_goback {
+  padding: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s linear;
+  width: fit-content;
+}
+
+.trailer_goback:hover {
+  text-decoration: underline;
+}
+
+.trailer_video {
+  width: 100%;
+  height: calc(100% - 50px);
+}
+
+.trailer_unavailable {
+  height: calc(100% - 30px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--fourth-color);
+}

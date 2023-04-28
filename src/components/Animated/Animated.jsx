@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Animated.css";
 import axios from "axios";
-import { Mousewheel, Scrollbar } from "swiper";
+import { Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
-import { MovieCard } from "..";
+import { MovieCard } from "../";
 
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
 
@@ -18,7 +18,7 @@ const Animated = () => {
           `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&with_genres=16`
         )
         .then((response) => {
-          console.log(response.data.results);
+          // console.log(response.data.results);
           setAnimated(response.data.results);
         });
     };
@@ -35,8 +35,7 @@ const Animated = () => {
         spaceBetween={10}
         slidesPerView={2}
         scrollbar={{ draggable: true }}
-        mousewheel={true}
-        modules={[Mousewheel, Scrollbar]}
+        modules={[Scrollbar]}
         className="mySwiper"
         breakpoints={{
           640: {

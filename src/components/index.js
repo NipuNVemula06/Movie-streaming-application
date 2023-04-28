@@ -10,3 +10,4 @@ export { default as MovieCard } from "./MovieCard/MovieCard";
 export { default as Cast } from "./Cast/Cast";
 export { default as Recommendation } from "./Recommendation/Recommendation";
 export { default as Splashscreen } from "./Splashscreen/Splashscreen";
+export { default as Trailer } from "./Trailer/Trailer";

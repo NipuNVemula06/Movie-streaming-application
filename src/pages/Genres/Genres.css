@@ -1,0 +1,12 @@
+.genres {
+  margin-top: 70px;
+  color: var(--primary-color);
+}
+
+.genes_container {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  gap: 20px;
+}

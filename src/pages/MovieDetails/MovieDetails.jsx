@@ -5,7 +5,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiPlay } from "react-icons/fi";
 import { BsBookmark, BsBookmarkFill, BsShare } from "react-icons/bs";
-import { Cast, Recommendation } from "../../components";
+import { Cast, Recommendation, Trailer } from "../../components";
 
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
 
@@ -14,6 +14,7 @@ const MovieDetails = () => {
   const location = useLocation();
   const [movie, setMovie] = useState([]);
   const [genres, setGenres] = useState([]);
+  const [watchtrailer, setWatchTrailer] = useState(false);
 
   const baseURL = "http://image.tmdb.org/t/p/original";
   // `https://api.themoviedb.org/3/${location.state.media}/${id}?api_key=${apikey}`
@@ -55,7 +56,7 @@ const MovieDetails = () => {
         <div className="moviedetails_content">
           <div className="moviedetails_postercontainer">
             <img
-              src={`${baseURL}${movie.poster_path}`}
+              src={`${baseURL}${movie?.poster_path}`}
               alt={id}
               className="moviedetails_poster"
             />
@@ -79,7 +80,10 @@ const MovieDetails = () => {
             </div>
             <span className="moviedetails_desc">{movie.overview}</span>
             <div className="moviedetails_buttons">
-              <div className="moviedetails_watchtrailerbutton">
+              <div
+                className="moviedetails_watchtrailerbutton"
+                onClick={() => setWatchTrailer(true)}
+              >
                 <span>Watch Trailer</span>
                 <FiPlay size={20} />
               </div>
@@ -99,6 +103,7 @@ const MovieDetails = () => {
           <Recommendation id={id} />
         </div>
       </div>
+      {watchtrailer && <Trailer id={id} setWatchTrailer={setWatchTrailer} />}
     </motion.div>
   );
 };

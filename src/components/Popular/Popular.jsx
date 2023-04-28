@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Popular.css";
 import axios from "axios";
-import { Mousewheel, Scrollbar } from "swiper";
+import { Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 import { MovieCard } from "..";
@@ -33,8 +33,7 @@ const Popular = () => {
         spaceBetween={10}
         slidesPerView={2}
         scrollbar={{ draggable: true }}
-        mousewheel={true}
-        modules={[Mousewheel, Scrollbar]}
+        modules={[Scrollbar]}
         className="mySwiper"
         breakpoints={{
           640: {

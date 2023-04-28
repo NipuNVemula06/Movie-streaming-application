@@ -40,7 +40,6 @@ const Cast = ({ id }) => {
             profilePath: director.profile_path,
           }));
           setDirector(directorNames[0]);
-          console.log(directorNames[0]);
         });
     };
 
