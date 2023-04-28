@@ -49,7 +49,10 @@
   white-space: nowrap;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 425px) {
+  .cast_content {
+    width: 160px;
+  }
   .cast_container {
     display: grid;
     gap: 15px;

@@ -73,11 +73,24 @@
     position: absolute;
     background-color: rgba(0, 0, 0, 0.6);
     height: 100vh;
-    top: 60px;
+    top: 0;
     right: 0;
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    z-index: 1000px;
+  }
+
+  .header_nav_close {
+    display: flex;
+    justify-content: flex-start;
+    padding-right: 10px;
+    width: 100%;
+  }
+
+  .header_nav_close_icon {
+    font-size: 25px;
+    cursor: pointer;
   }
 
   .header_nav {

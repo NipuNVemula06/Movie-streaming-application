@@ -96,7 +96,9 @@ const TvseriesDetails = () => {
         <div>
           <Episodes seasons={seasons} id={id} />
         </div>
-        <div>{/* <Cast id={id} mediatype={media_type} /> */}</div>
+        <div>
+          <Cast id={id} mediatype={media_type} />
+        </div>
         {/* <div>
           <Recommendation id={id} mediatype={media_type} />
         </div> */}

@@ -6,7 +6,6 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  /* padding-top: 70px; */
   scroll-behavior: smooth;
   background: var(--main-bg);
 }
