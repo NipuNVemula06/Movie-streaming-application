@@ -1,33 +1,33 @@
 import React, { useState, useEffect } from "react";
-import "./Tvseries.css";
-import { motion } from "framer-motion";
+import "./UpcomingPage.css";
 import axios from "axios";
-import { SeriesCard } from "../../components";
+import { MovieCard } from "../../components";
 import { Pagination } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
 
-const Tvseries = () => {
-  const [series, setSeries] = useState([]);
-  const [page, setPage] = useState(1);
+const UpcomingPage = () => {
+  const [upcoming, setUpcoming] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const [page, setPage] = useState(1);
   const totalPage = 100;
 
   useEffect(() => {
-    const fetchSeries = async () => {
+    const fetchUpcoming = async () => {
       await axios
         .get(
-          `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&sort_by=popularity.desc&page=${page}`
+          `https://api.themoviedb.org/3/movie/upcoming?api_key=${apikey}&page=${page}`
         )
         .then((response) => {
           setLoading(true);
-          setSeries(response.data.results);
+
+          setUpcoming(response.data.results);
         });
     };
     setTimeout(() => {
-      fetchSeries();
+      fetchUpcoming();
     }, 1000);
   }, [page]);
 
@@ -37,11 +37,11 @@ const Tvseries = () => {
   };
 
   return (
-    <motion.div className="series">
-      <div className="series_container">
-        <div className="series_topsection">
-          <span className="series_heading">TV Series</span>
-          <div className="series_buttons">
+    <div className="movies">
+      <div className="movies_container">
+        <div className="movies_topsection">
+          <span className="movies_heading">Upcoming Movies</span>
+          <div className="movies_buttons">
             <Pagination
               count={totalPage}
               onChange={handlePageChange}
@@ -53,13 +53,13 @@ const Tvseries = () => {
           </div>
         </div>
         {loading ? (
-          <div className="series_list">
-            {series?.map((item) => (
-              <SeriesCard
+          <div className="movies_list">
+            {upcoming?.map((item) => (
+              <MovieCard
                 key={item.id}
                 image={item.poster_path}
                 id={item.id}
-                type="tv"
+                type="movie"
               />
             ))}
           </div>
@@ -69,8 +69,8 @@ const Tvseries = () => {
           </div>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 };
 
-export default Tvseries;
+export default UpcomingPage;

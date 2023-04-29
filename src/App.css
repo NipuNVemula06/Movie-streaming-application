@@ -4,3 +4,29 @@
   flex-direction: column;
   gap: 40px;
 }
+
+.loading {
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .loading {
+    height: 420px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .loading {
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .loading {
+    height: 280px;
+  }
+}

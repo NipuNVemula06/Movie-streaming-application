@@ -1,6 +1,7 @@
 export { default as Header } from "./Header/Header";
 export { default as Footer } from "./Footer/Footer";
 export { default as Banner } from "./Banner/Banner";
+export { default as Search } from "./Search/Search";
 export { default as Trending } from "./Trending/Trending";
 export { default as Popular } from "./Popular/Popular";
 export { default as Toprated } from "./Toprated/Toprated";

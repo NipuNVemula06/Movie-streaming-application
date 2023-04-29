@@ -10,7 +10,7 @@
   padding: 10px 20px;
   background: transparent;
   transition: all 0.4s linear;
-  color: var(--fourth-color);
+  color: var(--primary-color);
 }
 
 .header_bg {
@@ -23,7 +23,7 @@
   align-items: center;
   font-size: 22px;
   cursor: pointer;
-  color: var(--fourth-color);
+  color: var(--primary-color);
 }
 
 .header_logo {
@@ -48,7 +48,7 @@
   font-weight: 600;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--fourth-color);
+  color: var(--primary-color);
 }
 
 .header_menu {

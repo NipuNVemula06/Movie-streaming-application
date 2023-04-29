@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const MyList = () => {
   return (
     <motion.div className="mylist">
-      <div className="mylist_container">MY LIST</div>
+      <div className="mylist_container">Coming Soon ......</div>
     </motion.div>
   );
 };

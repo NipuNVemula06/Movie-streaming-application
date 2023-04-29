@@ -7,8 +7,12 @@ import {
   MovieDetails,
   Movies,
   MyList,
+  PopularPage,
+  TopRatedPage,
+  TrendingPage,
   Tvseries,
   TvseriesDetails,
+  UpcomingPage,
 } from "./pages";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -45,6 +49,10 @@ function App() {
               <Route path="/tvseries" element={<Tvseries />} />
               <Route path="/genres" element={<Genres />} />
               <Route path="/mylist" element={<MyList />} />
+              <Route path="/trending" element={<TrendingPage />} />
+              <Route path="/popular" element={<PopularPage />} />
+              <Route path="/upcoming" element={<UpcomingPage />} />
+              <Route path="/toprated" element={<TopRatedPage />} />
             </Routes>
           </AnimatePresence>
           <Footer />

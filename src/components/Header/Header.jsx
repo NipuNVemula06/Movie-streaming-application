@@ -4,10 +4,12 @@ import { IoSearch } from "react-icons/io5";
 import { RiMenu3Line } from "react-icons/ri";
 import { MdOutlineClose } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+import Search from "../Search/Search";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [headerbackground, setHeaderbackground] = useState(false);
+  const [search, setSearch] = useState(false);
 
   const changeBackground = () => {
     if (window.scrollY >= 70) {
@@ -48,7 +50,7 @@ const Header = () => {
               onClick={() => setOpen(false)}
               className="header_navlink"
             >
-              <li>Home</li>
+              <p>Home</p>
             </NavLink>
           )}
 
@@ -62,14 +64,30 @@ const Header = () => {
               <li>{item.title}</li>
             </NavLink>
           ))}
+
+          {open && (
+            <div
+              onClick={() => {
+                setOpen(false);
+                setSearch(true);
+              }}
+              className="header_navlink"
+            >
+              <p>Search</p>
+            </div>
+          )}
         </ul>
       </nav>
       <div className="header_rightsection">
-        <IoSearch className="header_searchicon" />
+        <IoSearch
+          className="header_searchicon"
+          onClick={() => setSearch(true)}
+        />
       </div>
       <div onClick={() => setOpen(true)} className="header_menu">
-        {open ? <MdOutlineClose /> : <RiMenu3Line />}
+        <RiMenu3Line />
       </div>
+      {search && <Search setSearch={setSearch} />}
     </header>
   );
 };

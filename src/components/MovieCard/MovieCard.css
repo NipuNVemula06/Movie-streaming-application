@@ -1,6 +1,5 @@
 .moviecard {
-  /* height: 450px; */
-  height: 52vh;
+  height: 450px;
   cursor: pointer;
   position: relative;
   border-radius: 2px;
@@ -14,7 +13,7 @@
 }
 
 /* responsive CSS */
-/* @media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .moviecard {
     height: 420px;
   }
@@ -30,4 +29,4 @@
   .moviecard {
     height: 280px;
   }
-} */
+}
