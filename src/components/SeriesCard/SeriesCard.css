@@ -1,4 +1,4 @@
-.moviecard {
+.seriescard {
   /* height: 450px; */
   height: 52vh;
   cursor: pointer;
@@ -6,7 +6,7 @@
   border-radius: 2px;
 }
 
-.movie_image {
+.series_image {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -15,19 +15,19 @@
 
 /* responsive CSS */
 /* @media screen and (max-width: 1024px) {
-  .moviecard {
+  .seriescard {
     height: 420px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .moviecard {
+  .seriescard {
     height: 350px;
   }
 }
 
 @media screen and (max-width: 420px) {
-  .moviecard {
+  .seriescard {
     height: 280px;
   }
 } */

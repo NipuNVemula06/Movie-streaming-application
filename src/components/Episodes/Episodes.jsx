@@ -7,27 +7,25 @@ import axios from "axios";
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
 
 const Episodes = ({ seasons, id }) => {
-  const [selectedSeason, setSelectedSeason] = useState("");
-  const [seasonnumber, setSeasonnumber] = useState(null);
+  const [seasonNumber, setSeasonNumber] = useState(1);
   const [episodes, setEpisodes] = useState([]);
 
   const handleSeason = (e) => {
-    setSelectedSeason(e.target.options[e.target.selectedIndex].label);
-    setSeasonnumber(e.target.value);
+    setSeasonNumber(e.target.value);
   };
 
   useEffect(() => {
     const fetchEpisodes = async () => {
       await axios
         .get(
-          `https://api.themoviedb.org/3/tv/${id}/season/${seasonnumber}?api_key=${apikey}`
+          `https://api.themoviedb.org/3/tv/${id}/season/${seasonNumber}?api_key=${apikey}`
         )
         .then((response) => {
           setEpisodes(response.data.episodes);
         });
     };
     fetchEpisodes();
-  }, [selectedSeason]);
+  }, [seasonNumber]);
 
   return (
     <div className="episodes">
@@ -35,12 +33,11 @@ const Episodes = ({ seasons, id }) => {
         <h3>Episodes</h3>
         <div className="seasons">
           <select onChange={handleSeason}>
-            <option value="">Select a season</option>
             {seasons.map((item) => (
               <option
                 key={item.id}
                 value={item.season_number}
-                label={item.name}
+                label={item?.name}
               ></option>
             ))}
           </select>
@@ -48,7 +45,6 @@ const Episodes = ({ seasons, id }) => {
       </div>
       <Divider />
       <div className="episodes_container">
-        {selectedSeason && <h4>{selectedSeason}</h4>}
         {episodes?.map((item) => (
           <EpisodeCard
             key={item.id}
@@ -58,9 +54,9 @@ const Episodes = ({ seasons, id }) => {
             overview={item.overview}
             runtime={item.runtime}
             image={item.still_path}
+            airDate={item.air_date}
           />
         ))}
-        {selectedSeason && <Divider />}
       </div>
     </div>
   );

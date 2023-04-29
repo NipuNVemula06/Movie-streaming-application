@@ -51,9 +51,8 @@ const Movies = () => {
             <MovieCard
               key={item.id}
               image={item.poster_path}
-              title={item.title}
               id={item.id}
-              mediaType={item.media_type}
+              type="movie"
             />
           ))}
         </div>

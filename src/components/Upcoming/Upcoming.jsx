@@ -34,7 +34,6 @@ const Upcoming = () => {
         slidesPerView={2}
         scrollbar={{ draggable: true }}
         modules={[Scrollbar]}
-        className="mySwiper"
         breakpoints={{
           640: {
             slidesPerView: 3,
@@ -42,18 +41,13 @@ const Upcoming = () => {
           },
           768: {
             slidesPerView: 4,
-            spaceBetween: 30,
+            spaceBetween: 25,
           },
         }}
       >
         {upcoming?.map((item) => (
           <SwiperSlide key={item.id}>
-            <MovieCard
-              image={item.poster_path}
-              title={item.title}
-              id={item.id}
-              mediaType={item.media_type}
-            />
+            <MovieCard image={item.poster_path} id={item.id} type="movie" />
           </SwiperSlide>
         ))}
       </Swiper>

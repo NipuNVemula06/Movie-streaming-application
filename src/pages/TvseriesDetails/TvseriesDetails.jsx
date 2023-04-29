@@ -3,15 +3,8 @@ import "./TvseriesDetails.css";
 import axios from "axios";
 import { FiPlay } from "react-icons/fi";
 import { BsBookmark, BsBookmarkFill, BsShare } from "react-icons/bs";
-import {
-  Cast,
-  Episodes,
-  MovieCard,
-  Recommendation,
-  Trailer,
-} from "../../components";
-import { Divider } from "@mui/material";
-import { useLocation, useParams } from "react-router-dom";
+import { Cast, Episodes, Similar, Trailer } from "../../components";
+import { useParams, useLocation } from "react-router-dom";
 
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
 const baseURL = "http://image.tmdb.org/t/p/original";
@@ -19,7 +12,7 @@ const baseURL = "http://image.tmdb.org/t/p/original";
 const TvseriesDetails = () => {
   const { id } = useParams();
   const location = useLocation();
-  const media_type = location.state.media;
+  const media_type = location?.state.mediatype;
   const [series, setSeries] = useState([]);
   const [genres, setGenres] = useState([]);
   const [seasons, setSeasons] = useState([]);
@@ -93,15 +86,9 @@ const TvseriesDetails = () => {
         </div>
 
         {/*Episodes*/}
-        <div>
-          <Episodes seasons={seasons} id={id} />
-        </div>
-        <div>
-          <Cast id={id} mediatype={media_type} />
-        </div>
-        {/* <div>
-          <Recommendation id={id} mediatype={media_type} />
-        </div> */}
+        <Episodes seasons={seasons} id={id} />
+        <Cast id={id} mediatype={media_type} />
+        <Similar id={id} mediatype={media_type} />
       </div>
       {watchtrailer && (
         <Trailer

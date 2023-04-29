@@ -5,20 +5,19 @@ import { useLocation, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiPlay } from "react-icons/fi";
 import { BsBookmark, BsBookmarkFill, BsShare } from "react-icons/bs";
-import { Cast, Recommendation, Trailer } from "../../components";
+import { Cast, Similar, Trailer } from "../../components";
 
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
 
 const MovieDetails = () => {
   const { id } = useParams();
   const location = useLocation();
-  const media_type = location.state.media;
+  const media_type = location?.state.mediatype;
   const [movie, setMovie] = useState([]);
   const [genres, setGenres] = useState([]);
   const [watchtrailer, setWatchTrailer] = useState(false);
 
   const baseURL = "http://image.tmdb.org/t/p/original";
-  // `https://api.themoviedb.org/3/${location.state.media}/${id}?api_key=${apikey}`
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -100,12 +99,8 @@ const MovieDetails = () => {
             </div>
           </div>
         </div>
-        <div>
-          <Cast id={id} mediatype={media_type} />
-        </div>
-        {/* <div>
-          <Recommendation id={id} mediatype={media_type} />
-        </div> */}
+        <Cast id={id} mediatype={media_type} />
+        <Similar id={id} mediatype={media_type} />
       </div>
       {watchtrailer && (
         <Trailer

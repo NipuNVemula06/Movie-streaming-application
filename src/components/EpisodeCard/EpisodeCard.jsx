@@ -10,7 +10,17 @@ const EpisodeCard = ({
   title,
   runtime,
   overview,
+  airDate,
 }) => {
+  const currentDate = new Date().toISOString().slice(0, 10);
+
+  const checkAirdate = () => {
+    if (currentDate > airDate) {
+      return false;
+    } else {
+      return true;
+    }
+  };
   return (
     <div className="episode_content">
       <div className="episode_number">{episodeNumber}</div>
@@ -32,9 +42,13 @@ const EpisodeCard = ({
       <div className="episode_details">
         <div className="episode_details_top">
           <h2 className="episode_title">{title}</h2>
-          <p className="episode_runtime">{runtime}min</p>
+          {runtime && <p className="episode_runtime">{runtime}min</p>}
         </div>
-        <span className="episode_desc">{overview}</span>
+        {checkAirdate() ? (
+          <span className="episode_comingsoon">Coming Soon....</span>
+        ) : (
+          <span className="episode_desc">{overview}</span>
+        )}
       </div>
     </div>
   );

@@ -6,7 +6,6 @@ import {
   Trending,
   Upcoming,
   Popular,
-  Animated,
 } from "../../components";
 import { motion } from "framer-motion";
 
@@ -16,10 +15,9 @@ const Home = () => {
       <Banner />
       <div className="home">
         <Trending />
-        <Popular />
-        <Animated />
         <Toprated />
         <Upcoming />
+        <Popular />
       </div>
     </motion.div>
   );

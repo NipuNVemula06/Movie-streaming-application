@@ -4,26 +4,31 @@ import axios from "axios";
 
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
 
-const Trailer = ({ id, setWatchTrailer }) => {
+const Trailer = ({ id, setWatchTrailer, mediatype }) => {
   const [trailer, setTrailer] = useState([]);
 
   useEffect(() => {
     const fetchTrailer = async () => {
       await axios
         .get(
-          `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apikey}`
+          `https://api.themoviedb.org/3/${mediatype}/${id}/videos?api_key=${apikey}`
         )
         .then((response) => {
           const videos = response.data.results;
           const getTrailer = videos.filter((video) => video.type === "Trailer");
           const getOfficalTrailer = getTrailer.filter(
-            (trailer) => trailer.name === "Official Trailer"
+            (trailer) =>
+              trailer.name === "Official Trailer" ||
+              trailer.name === "Official Trailer [Subtitled]" ||
+              trailer.name === "Series Trailer"
           );
           setTrailer(getOfficalTrailer[0]);
         });
     };
+
     fetchTrailer();
   }, []);
+
   return (
     <div className="trailer">
       <div className="trailer_container">
@@ -33,7 +38,6 @@ const Trailer = ({ id, setWatchTrailer }) => {
         {trailer ? (
           <iframe
             src={`https://www.youtube.com/embed/${trailer.key}`}
-            allow="autoplay; encrypted-media"
             allowFullScreen
             title={trailer.name}
             className="trailer_video"

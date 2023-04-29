@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Tvseries.css";
 import { motion } from "framer-motion";
 import axios from "axios";
-import { MovieCard } from "../../components";
+import { SeriesCard } from "../../components";
 import { Pagination } from "@mui/material";
 
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
@@ -49,12 +49,11 @@ const Tvseries = () => {
         </div>
         <div className="series_list">
           {series?.map((item) => (
-            <MovieCard
+            <SeriesCard
               key={item.id}
               image={item.poster_path}
-              title={item.title}
               id={item.id}
-              mediaType={item.media_type}
+              type="tv"
             />
           ))}
         </div>

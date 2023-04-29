@@ -12,35 +12,33 @@ const Cast = ({ id, mediatype }) => {
 
   useEffect(() => {
     const fetchCastDetails = async () => {
-      axios
-        .get(
-          `https://api.themoviedb.org/3/${mediatype}/${id}/credits?api_key=${apikey}`
-        )
-        .then((response) => {
-          // GET THE FIRST 5 MAIN CAST MEMBERS
-          const cast = response.data.cast;
-          const mainCast = cast
-            .filter((member) => member.order <= 5) // get the first 5 main cast members
-            .map((member) => ({
-              id: member.id,
-              name: member.name,
-              character: member.character,
-              profilePath: member?.profile_path,
-            }));
-          setCast(mainCast);
+      try {
+        axios
+          .get(
+            `https://api.themoviedb.org/3/${mediatype}/${id}/credits?api_key=${apikey}`
+          )
+          .then((response) => {
+            // GET THE FIRST 5 MAIN CAST MEMBERS
+            const cast = response.data.cast;
+            setCast(cast.slice(0, 10));
 
-          // GET THE DIRECTOR INFO
-          const crew = response.data.crew;
-          const directors = crew.filter(
-            (member) => member.department === "Directing"
-          );
-          const directorNames = directors.map((director) => ({
-            id: director.id,
-            name: director.name,
-            profilePath: director.profile_path,
-          }));
-          setDirector(directorNames[0]);
-        });
+            // GET THE DIRECTOR INFO
+            const crew = response.data.crew;
+            const director = crew?.find(
+              (member) => member.known_for_department === "Directing"
+            );
+            if (director) {
+              const directorDetails = {
+                id: director.id,
+                name: director.name,
+                profilePath: director.profile_path,
+              };
+              setDirector(directorDetails);
+            }
+          });
+      } catch (err) {
+        console.log(err);
+      }
     };
 
     fetchCastDetails();
@@ -58,31 +56,39 @@ const Cast = ({ id, mediatype }) => {
           sx={{
             width: "160px",
             height: "160px",
+            borderRadius: "2px",
           }}
         />
         <span className="cast_name">{director.name}</span>
       </div>
-      <span className="cast_starring">Starring</span>
-      <div className="cast_container">
-        {cast?.map((member) => (
-          <div key={member.id} className="cast_content">
-            <Avatar
-              src={`${baseURL}${member.profilePath}`}
-              alt={member.name}
-              className="cast_image"
-              variant="square"
-              sx={{
-                width: "160px",
-                height: "160px",
-              }}
-            />
-            <span className="cast_name">{member.name}</span>
-            <span className="cast_character">
-              <span>as</span> {member.character}
-            </span>
+      {cast && (
+        <>
+          <span className="cast_starring">Starring</span>
+          <div className="cast_container">
+            {cast?.map((member) => (
+              <div key={member.id} className="cast_content">
+                <Avatar
+                  src={`${baseURL}${member.profile_path}`}
+                  alt={member.name}
+                  className="cast_image"
+                  variant="square"
+                  sx={{
+                    width: "160px",
+                    height: "160px",
+                    borderRadius: "2px",
+                  }}
+                />
+                <span className="cast_name">{member.name}</span>
+                {member.character && (
+                  <span className="cast_character">
+                    <span>as</span> {member.character}
+                  </span>
+                )}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      )}
     </div>
   );
 };

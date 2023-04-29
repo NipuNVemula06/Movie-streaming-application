@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Genres.css";
 import { motion } from "framer-motion";
-import { GenreCard, MovieCard } from "../../components";
+import { GenreCard, MovieCard, SeriesCard } from "../../components";
 import axios from "axios";
 import { Pagination } from "@mui/material";
 
@@ -89,13 +89,18 @@ const Genres = () => {
           </div>
           <div className="genres_listcontainer">
             {content?.map((item) => (
-              <MovieCard
-                key={item.id}
-                image={item.poster_path}
-                title={item.title}
-                id={item.id}
-                mediaType={item.media_type}
-              />
+              <div key={item.id}>
+                {mediatype === "movie" && (
+                  <MovieCard
+                    image={item.poster_path}
+                    id={item.id}
+                    type="movie"
+                  />
+                )}
+                {mediatype === "tv" && (
+                  <SeriesCard image={item.poster_path} id={item.id} type="tv" />
+                )}
+              </div>
             ))}
           </div>
         </div>

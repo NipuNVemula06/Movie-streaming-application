@@ -21,8 +21,5 @@
   background-color: var(--third-color);
   font-weight: 600;
   font-size: 15px;
-}
-
-.mySwiper {
-  width: 100%;
+  border-radius: 2px;
 }

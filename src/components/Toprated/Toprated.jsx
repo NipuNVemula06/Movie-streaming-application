@@ -4,7 +4,7 @@ import axios from "axios";
 import { Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
-import { MovieCard } from "../../components";
+import { SeriesCard } from "../../components";
 
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
 
@@ -14,7 +14,7 @@ const Toprated = () => {
   useEffect(() => {
     const fetchToprated = async () => {
       await axios
-        .get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apikey}`)
+        .get(`https://api.themoviedb.org/3/tv/top_rated?api_key=${apikey}`)
         .then((response) => {
           setToprated(response.data.results);
         });
@@ -26,7 +26,7 @@ const Toprated = () => {
   return (
     <div className="toprated">
       <div className="toprated_topsection">
-        <span className="toprated_heading">Top Rated Movies</span>
+        <span className="toprated_heading">Top Rated Shows</span>
         <span className="toprated_seeall">See All</span>
       </div>
       <Swiper
@@ -34,7 +34,6 @@ const Toprated = () => {
         slidesPerView={2}
         scrollbar={{ draggable: true }}
         modules={[Scrollbar]}
-        className="mySwiper"
         breakpoints={{
           640: {
             slidesPerView: 3,
@@ -42,18 +41,13 @@ const Toprated = () => {
           },
           768: {
             slidesPerView: 4,
-            spaceBetween: 30,
+            spaceBetween: 25,
           },
         }}
       >
         {toprated?.map((item) => (
           <SwiperSlide key={item.id}>
-            <MovieCard
-              image={item.poster_path}
-              title={item.title}
-              id={item.id}
-              mediaType={item.media_type}
-            />
+            <SeriesCard image={item.poster_path} id={item.id} type="tv" />
           </SwiperSlide>
         ))}
       </Swiper>
