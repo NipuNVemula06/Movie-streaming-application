@@ -19,6 +19,7 @@ const TvseriesDetails = () => {
   const [seasons, setSeasons] = useState([]);
   const [watchtrailer, setWatchTrailer] = useState(false);
   const [loading, setLoading] = useState(false);
+  console.log(series);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -41,11 +42,15 @@ const TvseriesDetails = () => {
       {loading ? (
         <div className="seriesdetails">
           <div className="seriesdetails_imagecontainer">
-            <img
-              src={`${baseURL}${series.backdrop_path}`}
-              alt={series.name}
-              className="seriesdetails_backdrop_image"
-            />
+            {series.backdrop_path ? (
+              <img
+                src={`${baseURL}${series.backdrop_path}`}
+                alt={series.name}
+                className="seriesdetails_backdrop_image"
+              />
+            ) : (
+              <div className="seriesdetails_nobackdrop_image"></div>
+            )}
             <div className="seriesdetails_titleonimagecontainer">
               <span className="seriesdetails_titleonimage">
                 {series.original_name}
@@ -64,10 +69,12 @@ const TvseriesDetails = () => {
               <div className="seriesdetails_contentcontainer">
                 <div className="seriesdetails_titlecontainer">
                   <span className="seriesdetails_title">{series.name}</span>
+
                   <span className="seriesdetails_releasedate">
                     ( {series.last_air_date?.split("-")[0]} )
                   </span>
                 </div>
+                <p className="seriesdetails_tagline">{series.tagline}</p>
                 <div className="seriesdetails_genres">
                   {genres?.map((item) => (
                     <span key={item.id} className="seriesdetails_genre">

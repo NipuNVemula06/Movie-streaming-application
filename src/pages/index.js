@@ -9,3 +9,4 @@ export { default as UpcomingPage } from "./UpcomingPage/UpcomingPage";
 export { default as TrendingPage } from "./TrendingPage/TrendingPage";
 export { default as TopRatedPage } from "./TopRatedPage/TopRatedPage";
 export { default as PopularPage } from "./PopularPage/PopularPage";
+export { default as Person } from "./Person/Person";

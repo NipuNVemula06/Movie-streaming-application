@@ -7,6 +7,7 @@ import {
   MovieDetails,
   Movies,
   MyList,
+  Person,
   PopularPage,
   TopRatedPage,
   TrendingPage,
@@ -53,6 +54,7 @@ function App() {
               <Route path="/popular" element={<PopularPage />} />
               <Route path="/upcoming" element={<UpcomingPage />} />
               <Route path="/toprated" element={<TopRatedPage />} />
+              <Route path="/person/:id" element={<Person />} />
             </Routes>
           </AnimatePresence>
           <Footer />

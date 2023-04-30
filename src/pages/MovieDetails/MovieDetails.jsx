@@ -50,11 +50,15 @@ const MovieDetails = () => {
       {loading ? (
         <motion.div className="moviedetails">
           <div className="moviedetails_imagecontainer">
-            <img
-              src={`${baseURL}${movie.backdrop_path}`}
-              alt={id}
-              className="moviedetails_backdrop_image"
-            />
+            {movie.backdrop_path ? (
+              <img
+                src={`${baseURL}${movie.backdrop_path}`}
+                alt={id}
+                className="moviedetails_backdrop_image"
+              />
+            ) : (
+              <div className="moviedetails_nobackdrop_image"></div>
+            )}
             <div className="moviedetails_titleonimagecontainer">
               <span className="moviedetails_titleonimage">
                 {movie.original_title}
@@ -65,7 +69,7 @@ const MovieDetails = () => {
             <div className="moviedetails_content">
               <div className="moviedetails_postercontainer">
                 <img
-                  src={`${baseURL}${movie?.poster_path}`}
+                  src={`${baseURL}${movie.poster_path}`}
                   alt={id}
                   className="moviedetails_poster"
                 />
@@ -79,6 +83,7 @@ const MovieDetails = () => {
                     </span>
                   </span>
                 </div>
+                <p className="moviedetails_tagline">{movie.tagline}</p>
                 <div className="moviedetails_runtimecontainer">
                   <span>Runtime - </span> <span>{runTime(movie.runtime)}</span>
                 </div>

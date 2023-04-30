@@ -53,6 +53,10 @@ const Trending = () => {
               slidesPerView: 4,
               spaceBetween: 25,
             },
+            // 1024: {
+            //   slidesPerView: 6,
+            //   spaceBetween: 20,
+            // },
           }}
         >
           {trending?.map((item) => (

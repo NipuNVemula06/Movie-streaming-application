@@ -1,5 +1,6 @@
 import React from "react";
 import "./EpisodeCard.css";
+import { BsPlayCircle } from "react-icons/bs";
 
 const baseURL = "http://image.tmdb.org/t/p/original";
 
@@ -26,11 +27,16 @@ const EpisodeCard = ({
       <div className="episode_number">{episodeNumber}</div>
       <div className="episode_image_container">
         {image ? (
-          <img
-            src={`${baseURL}${image}`}
-            alt="episode_title"
-            className="episode_image"
-          />
+          <div className="episode_image_hover">
+            <img
+              src={`${baseURL}${image}`}
+              alt="episode_title"
+              className="episode_image"
+            />
+            <span className="episode_playbutton">
+              <BsPlayCircle className="episode_playicon" />
+            </span>
+          </div>
         ) : (
           <img
             src="https://via.placeholder.com/300x450.png?text=No+Image"
@@ -39,6 +45,7 @@ const EpisodeCard = ({
           />
         )}
       </div>
+
       <div className="episode_details">
         <div className="episode_details_top">
           <h2 className="episode_title">{title}</h2>

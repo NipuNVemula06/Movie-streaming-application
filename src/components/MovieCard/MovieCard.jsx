@@ -3,7 +3,7 @@ import "./MovieCard.css";
 import { useNavigate } from "react-router-dom";
 
 const MovieCard = ({ image, title, id, type }) => {
-  const baseURL = "http://image.tmdb.org/t/p/w500";
+  const baseURL = "http://image.tmdb.org/t/p/original";
   const navigate = useNavigate();
 
   const gotoMovieDetailsPage = () => {
@@ -15,7 +15,12 @@ const MovieCard = ({ image, title, id, type }) => {
   };
   return (
     <div className="moviecard" onClick={gotoMovieDetailsPage}>
-      <img src={`${baseURL}${image}`} alt={title} className="movie_image" />
+      <img
+        loading="lazy"
+        src={`${baseURL}${image}`}
+        alt={title}
+        className="movie_image"
+      />
     </div>
   );
 };

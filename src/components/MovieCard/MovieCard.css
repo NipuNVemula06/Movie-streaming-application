@@ -1,4 +1,5 @@
 .moviecard {
+  height: 330px;
   height: 450px;
   cursor: pointer;
   position: relative;

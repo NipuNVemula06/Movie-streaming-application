@@ -1,0 +1,94 @@
+.person {
+  margin-top: 70px;
+  color: var(--primary-color);
+}
+
+.person_container {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 10px;
+  display: grid;
+  gap: 20px;
+}
+
+.person_topsection {
+  display: flex;
+  gap: 15px;
+}
+
+.person_imagecontainer {
+  width: 250px;
+  height: 330px;
+  border-radius: 2px;
+}
+
+.person_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.person_basicdetails {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.person_name {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.person_basicinfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+
+.person_basicinfo > p {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.person_biographycontainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.person_biography {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.person_bio {
+  display: inline;
+  line-height: 1.4rem;
+}
+
+.person_bioreadmore {
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--secondary-color);
+}
+
+.person_bottomsection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media screen and (max-width: 425px) {
+  .person_topsection {
+    flex-direction: column;
+  }
+  .person_imagecontainer {
+    width: 100%;
+  }
+}
