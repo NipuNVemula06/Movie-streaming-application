@@ -10,7 +10,6 @@ export { default as MovieCard } from "./MovieCard/MovieCard";
 export { default as SeriesCard } from "./SeriesCard/SeriesCard";
 export { default as Cast } from "./Cast/Cast";
 export { default as Similar } from "./Similar/Similar";
-export { default as Splashscreen } from "./Splashscreen/Splashscreen";
 export { default as Trailer } from "./Trailer/Trailer";
 export { default as GenreCard } from "./GenreCard/GenreCard";
 export { default as Episodes } from "./Episodes/Episodes";

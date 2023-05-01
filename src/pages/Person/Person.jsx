@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Knownfor } from "../../components";
+import { Helmet } from "react-helmet";
 
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
 const baseURL = "http://image.tmdb.org/t/p/original";
@@ -49,6 +50,9 @@ const Person = () => {
       <div className="person_container">
         {loading ? (
           <>
+            <Helmet>
+              <title>{`StreamFlix | ${person.name}`}</title>
+            </Helmet>
             <div className="person_topsection">
               <div className="person_imagecontainer">
                 {person.profile_path ? (

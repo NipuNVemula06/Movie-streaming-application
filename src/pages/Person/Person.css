@@ -70,6 +70,7 @@
 .person_bio {
   display: inline;
   line-height: 1.4rem;
+  width: 100%;
 }
 
 .person_bioreadmore {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Banner.css";
 import { BsFillPlayFill } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,7 +11,7 @@ const Banner = () => {
       <Swiper
         scrollbar={{ draggable: true }}
         autoplay={{
-          delay: 2500,
+          delay: 5000,
           disableOnInteraction: true,
         }}
         modules={[Autoplay, Scrollbar]}
@@ -30,7 +30,7 @@ const Banner = () => {
                   </span>
                   <span className="banner_moviebutton1">
                     <BsFillPlayFill className="banner_button_icon" />
-                    Trailer
+                    Watch Trailer
                   </span>
                 </div>
               </div>
@@ -52,7 +52,7 @@ const movies = [
     description:
       "Decades after Sarah Connor prevented Judgment Day, a lethal new Terminator is sent to eliminate the future leader of the resistance. In a fight to save mankind, battle-hardened Sarah Connor teams up with an unexpected ally and an enhanced super soldier to stop the deadliest Terminator yet.",
     type: "movie",
-    link: "/",
+    link: "oxy8udgWRmo",
   },
   {
     id: 2,
@@ -61,7 +61,7 @@ const movies = [
     description:
       "Amid the stark discord of twin cities Piltover and Zaun, two sisters fight on rival sides of a war between magic technologies and clashing convictions.",
     type: "tv",
-    link: "/",
+    link: "fXmAurh012s",
   },
   {
     id: 3,
@@ -70,7 +70,7 @@ const movies = [
     description:
       "Super-Hero partners Scott Lang and Hope van Dyne, along with with Hope's parents Janet van Dyne and Hank Pym, and Scott's daughter Cassie Lang, find themselves exploring the Quantum Realm, interacting with strange new creatures and embarking on an adventure that will push them beyond the limits of what they thought possible.",
     type: "movie",
-    link: "/",
+    link: "ZlNFpri-Y40",
   },
   {
     id: 4,
@@ -79,6 +79,6 @@ const movies = [
     description:
       "On the eve of her 38th birthday, a woman desperately attempts to fix her broken biological clock.",
     type: "movie",
-    link: "/",
+    link: "5h3WqGDpeYs",
   },
 ];

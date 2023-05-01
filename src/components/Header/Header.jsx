@@ -106,13 +106,8 @@ const navlinks = [
     link: "/tvseries",
   },
   {
-    id: 4,
+    id: 3,
     title: "Genres",
     link: "/genres",
-  },
-  {
-    id: 5,
-    title: "My List",
-    link: "/mylist",
   },
 ];

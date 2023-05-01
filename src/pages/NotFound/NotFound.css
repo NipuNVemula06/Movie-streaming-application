@@ -1,0 +1,15 @@
+.notfound {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.notfound_image {
+  height: 550px;
+}
+
+@media screen and (max-width: 425px) {
+  .notfound_image {
+    height: 380px;
+  }
+}

@@ -5,6 +5,7 @@ import axios from "axios";
 import { SeriesCard } from "../../components";
 import { Pagination } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Helmet } from "react-helmet";
 
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
 
@@ -38,6 +39,9 @@ const Tvseries = () => {
 
   return (
     <motion.div className="series">
+      <Helmet>
+        <title>StreamFlix | TV Series</title>
+      </Helmet>
       <div className="series_container">
         <div className="series_topsection">
           <span className="series_heading">TV Series</span>

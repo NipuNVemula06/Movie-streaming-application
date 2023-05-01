@@ -5,6 +5,7 @@ import { GenreCard, MovieCard, SeriesCard } from "../../components";
 import axios from "axios";
 import { Pagination } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Helmet } from "react-helmet";
 
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
 
@@ -43,6 +44,9 @@ const Genres = () => {
 
   return (
     <motion.div className="genres">
+      <Helmet>
+        <title>StreamFlix | Genres</title>
+      </Helmet>
       <div className="genres_container">
         <div className="genres_topsection">
           <span className="genres_heading">Genres</span>

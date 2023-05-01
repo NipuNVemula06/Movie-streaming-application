@@ -4,6 +4,7 @@ import axios from "axios";
 import { MovieCard } from "../../components";
 import { Pagination } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Helmet } from "react-helmet";
 
 const apikey = process.env.REACT_APP_API_SECRET_KEY;
 
@@ -37,6 +38,9 @@ const TrendingPage = () => {
 
   return (
     <div className="movies">
+      <Helmet>
+        <title>StreamFlix | Trending Movies</title>
+      </Helmet>
       <div className="movies_container">
         <div className="movies_topsection">
           <span className="movies_heading">Trending Movies</span>
