@@ -27,10 +27,10 @@ const Tvseries = () => {
           setSeries(response.data.results);
         });
     };
-    setTimeout(() => {
-      fetchSeries();
-    }, 1000);
+    fetchSeries();
   }, [page]);
+
+  const transitionDuration = loading ? 0.5 : 2;
 
   const handlePageChange = (event, value) => {
     // event parameter is required
@@ -38,7 +38,13 @@ const Tvseries = () => {
   };
 
   return (
-    <motion.div className="series">
+    <motion.div
+      className="series"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: transitionDuration }}
+    >
       <Helmet>
         <title>StreamFlix | TV Series</title>
       </Helmet>
@@ -56,22 +62,16 @@ const Tvseries = () => {
             />
           </div>
         </div>
-        {loading ? (
-          <div className="series_list">
-            {series?.map((item) => (
-              <SeriesCard
-                key={item.id}
-                image={item.poster_path}
-                id={item.id}
-                type="tv"
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="loading">
-            <CircularProgress color="inherit" />
-          </div>
-        )}
+        <div className="series_list">
+          {series?.map((item) => (
+            <SeriesCard
+              key={item.id}
+              image={item.poster_path}
+              id={item.id}
+              type="tv"
+            />
+          ))}
+        </div>
       </div>
     </motion.div>
   );

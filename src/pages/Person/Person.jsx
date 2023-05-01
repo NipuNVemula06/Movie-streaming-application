@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Person.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { motion } from "framer-motion";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Knownfor } from "../../components";
 import { Helmet } from "react-helmet";
@@ -40,13 +41,19 @@ const Person = () => {
         console.log(err);
       }
     };
-    setTimeout(() => {
-      fetchPersonDetails();
-    }, 1000);
+    fetchPersonDetails();
   }, []);
 
+  const transitionDuration = loading ? 0.5 : 2;
+
   return (
-    <div className="person">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: transitionDuration }}
+      className="person"
+    >
       <div className="person_container">
         {loading ? (
           <>
@@ -119,7 +126,7 @@ const Person = () => {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

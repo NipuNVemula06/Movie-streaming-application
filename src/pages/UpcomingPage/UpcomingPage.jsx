@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./UpcomingPage.css";
 import axios from "axios";
+import { motion } from "framer-motion";
 import { MovieCard } from "../../components";
 import { Pagination } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -27,10 +28,10 @@ const UpcomingPage = () => {
           setUpcoming(response.data.results);
         });
     };
-    setTimeout(() => {
-      fetchUpcoming();
-    }, 1000);
+    fetchUpcoming();
   }, [page]);
+
+  const transitionDuration = loading ? 0.5 : 2;
 
   const handlePageChange = (event, value) => {
     // event parameter is required
@@ -38,7 +39,13 @@ const UpcomingPage = () => {
   };
 
   return (
-    <div className="movies">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: transitionDuration }}
+      className="movies"
+    >
       <Helmet>
         <title>StreamFlix | Upcoming Movies</title>
       </Helmet>
@@ -73,7 +80,7 @@ const UpcomingPage = () => {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

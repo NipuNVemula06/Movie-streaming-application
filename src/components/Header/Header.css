@@ -78,7 +78,7 @@
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    z-index: 1000px;
+    z-index: 1000;
   }
 
   .header_nav_close {

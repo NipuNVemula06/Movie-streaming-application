@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./TrendingPage.css";
 import axios from "axios";
+import { motion } from "framer-motion";
 import { MovieCard } from "../../components";
 import { Pagination } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -22,14 +23,13 @@ const TrendingPage = () => {
         )
         .then((response) => {
           setLoading(true);
-
           setTrending(response.data.results);
         });
     };
-    setTimeout(() => {
-      fetchTrending();
-    }, 1000);
+    fetchTrending();
   }, [page]);
+
+  const transitionDuration = loading ? 0.5 : 2;
 
   const handlePageChange = (event, value) => {
     // event parameter is required
@@ -37,7 +37,13 @@ const TrendingPage = () => {
   };
 
   return (
-    <div className="movies">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: transitionDuration }}
+      className="movies"
+    >
       <Helmet>
         <title>StreamFlix | Trending Movies</title>
       </Helmet>
@@ -72,7 +78,7 @@ const TrendingPage = () => {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

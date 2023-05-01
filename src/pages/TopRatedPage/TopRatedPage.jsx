@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./TopRatedPage.css";
 import axios from "axios";
+import { motion } from "framer-motion";
 import { SeriesCard } from "../../components";
 import { Pagination } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -23,14 +24,13 @@ const TopRatedPage = () => {
         )
         .then((response) => {
           setLoading(true);
-
           setToprated(response.data.results);
         });
     };
-    setTimeout(() => {
-      fetchToprated();
-    }, 1000);
+    fetchToprated();
   }, [page]);
+
+  const transitionDuration = loading ? 0.5 : 2;
 
   const handlePageChange = (event, value) => {
     // event parameter is required
@@ -38,7 +38,13 @@ const TopRatedPage = () => {
   };
 
   return (
-    <div className="movies">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: transitionDuration }}
+      className="movies"
+    >
       <Helmet>
         <title>StreamFlix | Top Rated Shows</title>
       </Helmet>
@@ -73,7 +79,7 @@ const TopRatedPage = () => {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -10,3 +10,4 @@ export { default as TopRatedPage } from "./TopRatedPage/TopRatedPage";
 export { default as PopularPage } from "./PopularPage/PopularPage";
 export { default as Person } from "./Person/Person";
 export { default as NotFound } from "./NotFound/NotFound";
+export { default as Scroll } from "./Scroll";

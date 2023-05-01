@@ -26,9 +26,7 @@ const Trending = () => {
           setTrending(response.data.results);
         });
     };
-    setTimeout(() => {
-      fetchTrending();
-    }, 1000);
+    fetchTrending();
   }, []);
   return (
     <div className="trending">

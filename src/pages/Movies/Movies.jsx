@@ -27,17 +27,23 @@ const Movies = () => {
           setMovies(response.data.results);
         });
     };
-    setTimeout(() => {
-      fetchMovies();
-    }, 1000);
+    fetchMovies();
   }, [page]);
+
+  const transitionDuration = loading ? 0.5 : 2;
 
   const handlePageChange = (event, value) => {
     // event parameter is required
     setPage(value);
   };
   return (
-    <motion.div className="movies">
+    <motion.div
+      className="movies"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: transitionDuration }}
+    >
       <Helmet>
         <title>StreamFlix | Movies</title>
       </Helmet>
@@ -55,22 +61,16 @@ const Movies = () => {
             />
           </div>
         </div>
-        {loading ? (
-          <div className="movies_list">
-            {movies?.map((item) => (
-              <MovieCard
-                key={item.id}
-                image={item.poster_path}
-                id={item.id}
-                type="movie"
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="loading">
-            <CircularProgress color="inherit" />
-          </div>
-        )}
+        <div className="movies_list">
+          {movies?.map((item) => (
+            <MovieCard
+              key={item.id}
+              image={item.poster_path}
+              id={item.id}
+              type="movie"
+            />
+          ))}
+        </div>
       </div>
     </motion.div>
   );

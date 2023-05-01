@@ -67,50 +67,56 @@ const Search = ({ setSearch }) => {
 
   return (
     <div className="search">
-      <div className="search_topsection">
-        <AiOutlineClose
-          className="search_close"
-          onClick={() => setSearch(false)}
-        />
-      </div>
-      <Divider />
-      <div className="search_inputcontainer">
-        <form onSubmit={handleSubmit} className="search_form">
-          <input
-            type="text"
-            value={query}
-            onChange={handleChange}
-            className="search_input"
-            placeholder="Search for movies or tv series"
+      <div className="search_container">
+        <div className="search_topsection">
+          <AiOutlineClose
+            className="search_close"
+            onClick={() => setSearch(false)}
           />
-          <input type="submit" value="search" className="search_submitbutton" />
-        </form>
-        {loading ? (
-          <div className="search_resultcontainer">
-            {result?.map((item) => (
-              <div key={item.id} className="search_resultcard">
-                {item.poster_path ? (
-                  <img
-                    src={`${baseURL}${item.poster_path}`}
-                    alt={item.title}
-                    className="search_resultimage"
-                    onClick={() => gotoDetailsPage(item.id, item.media_type)}
-                  />
-                ) : (
-                  <img
-                    src={`https://via.placeholder.com/300x450.png?text=${item.title}`}
-                    alt={item.title}
-                    className="search_resultnoimage"
-                  />
-                )}
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="loading">
-            <CircularProgress color="inherit" />
-          </div>
-        )}
+        </div>
+        <Divider />
+        <div className="search_inputcontainer">
+          <form onSubmit={handleSubmit} className="search_form">
+            <input
+              type="text"
+              value={query}
+              onChange={handleChange}
+              className="search_input"
+              placeholder="Search for movies or tv series"
+            />
+            <input
+              type="submit"
+              value="search"
+              className="search_submitbutton"
+            />
+          </form>
+          {loading ? (
+            <div className="search_resultcontainer">
+              {result?.map((item) => (
+                <div key={item.id} className="search_resultcard">
+                  {item.poster_path ? (
+                    <img
+                      src={`${baseURL}${item.poster_path}`}
+                      alt={item.title}
+                      className="search_resultimage"
+                      onClick={() => gotoDetailsPage(item.id, item.media_type)}
+                    />
+                  ) : (
+                    <img
+                      src={`https://via.placeholder.com/300x450.png?text=${item.title}`}
+                      alt={item.title}
+                      className="search_resultnoimage"
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="loading">
+              <CircularProgress color="inherit" />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

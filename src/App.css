@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+  position: relative;
 }
 
 .loading {
@@ -11,6 +12,27 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+}
+
+.scrolltotop {
+  position: fixed;
+  bottom: 2rem;
+  right: 3rem;
+  background-color: var(--third-color);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--primary-color);
+  width: fit-content;
+  z-index: 99;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+.scrolltotop.show {
+  opacity: 1;
 }
 
 @media screen and (max-width: 1024px) {

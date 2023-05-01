@@ -24,9 +24,7 @@ const Popular = () => {
           setPopular(response.data.results);
         });
     };
-    setTimeout(() => {
-      fetchPopular();
-    }, 1000);
+    fetchPopular();
   }, []);
 
   return (

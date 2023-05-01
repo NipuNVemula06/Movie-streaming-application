@@ -16,3 +16,17 @@ a {
   list-style-type: none;
   text-decoration: none;
 }
+
+/* Customize the scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--third-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--fourth-color);
+  border-radius: 10px;
+}
