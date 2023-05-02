@@ -41,19 +41,13 @@ const Person = () => {
         console.log(err);
       }
     };
-    fetchPersonDetails();
+    setTimeout(() => {
+      fetchPersonDetails();
+    }, 1000);
   }, []);
 
-  const transitionDuration = loading ? 0.5 : 2;
-
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: transitionDuration }}
-      className="person"
-    >
+    <motion.div className="person">
       <div className="person_container">
         {loading ? (
           <>

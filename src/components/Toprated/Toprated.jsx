@@ -24,7 +24,9 @@ const Toprated = () => {
           setToprated(response.data.results);
         });
     };
-    fetchToprated();
+    setTimeout(() => {
+      fetchToprated();
+    }, 1000);
   }, []);
 
   return (

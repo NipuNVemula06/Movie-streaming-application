@@ -24,7 +24,9 @@ const Upcoming = () => {
           setUpcoming(response.data.results);
         });
     };
-    fetchUpcoming();
+    setTimeout(() => {
+      fetchUpcoming();
+    }, 1000);
   }, []);
 
   return (

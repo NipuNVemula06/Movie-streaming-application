@@ -51,4 +51,8 @@
   .loading {
     height: 280px;
   }
+  .scrolltotop {
+    bottom: 2rem;
+    right: 1.5rem;
+  }
 }

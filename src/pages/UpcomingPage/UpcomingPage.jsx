@@ -28,10 +28,10 @@ const UpcomingPage = () => {
           setUpcoming(response.data.results);
         });
     };
-    fetchUpcoming();
+    setTimeout(() => {
+      fetchUpcoming();
+    }, 1000);
   }, [page]);
-
-  const transitionDuration = loading ? 0.5 : 2;
 
   const handlePageChange = (event, value) => {
     // event parameter is required
@@ -39,13 +39,7 @@ const UpcomingPage = () => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: transitionDuration }}
-      className="movies"
-    >
+    <motion.div className="movies">
       <Helmet>
         <title>StreamFlix | Upcoming Movies</title>
       </Helmet>

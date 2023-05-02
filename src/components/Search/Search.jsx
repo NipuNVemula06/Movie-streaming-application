@@ -22,12 +22,12 @@ const Search = ({ setSearch }) => {
           `https://api.themoviedb.org/3/search/multi?api_key=${apikey}&query=${query}`
         )
         .then((response) => {
+          setLoading(true);
           const result = response.data.results;
           const filteredResults = result?.filter(
             (item) => item.media_type === "movie" || item.media_type === "tv"
           );
           setResult(filteredResults);
-          setLoading(true);
         });
     };
     setTimeout(() => {
@@ -74,7 +74,6 @@ const Search = ({ setSearch }) => {
             onClick={() => setSearch(false)}
           />
         </div>
-        <Divider />
         <div className="search_inputcontainer">
           <form onSubmit={handleSubmit} className="search_form">
             <input

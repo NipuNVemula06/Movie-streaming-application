@@ -27,10 +27,10 @@ const TopRatedPage = () => {
           setToprated(response.data.results);
         });
     };
-    fetchToprated();
+    setTimeout(() => {
+      fetchToprated();
+    }, 1000);
   }, [page]);
-
-  const transitionDuration = loading ? 0.5 : 2;
 
   const handlePageChange = (event, value) => {
     // event parameter is required
@@ -38,48 +38,50 @@ const TopRatedPage = () => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: transitionDuration }}
-      className="movies"
-    >
-      <Helmet>
-        <title>StreamFlix | Top Rated Shows</title>
-      </Helmet>
-      <div className="movies_container">
-        <div className="movies_topsection">
-          <span className="movies_heading">Top Rated Shows</span>
-          <div className="movies_buttons">
-            <Pagination
-              count={totalPage}
-              onChange={handlePageChange}
-              shape="rounded"
-              size="small"
-              boundaryCount={1}
-              siblingCount={1}
-            />
+    <>
+      {loading ? (
+        <motion.div className="movies">
+          <Helmet>
+            <title>StreamFlix | Top Rated Shows</title>
+          </Helmet>
+          <div className="movies_container">
+            <div className="movies_topsection">
+              <span className="movies_heading">Top Rated Shows</span>
+              <div className="movies_buttons">
+                <Pagination
+                  count={totalPage}
+                  onChange={handlePageChange}
+                  shape="rounded"
+                  size="small"
+                  boundaryCount={1}
+                  siblingCount={1}
+                />
+              </div>
+            </div>
+            {loading ? (
+              <div className="movies_list">
+                {toprated?.map((item) => (
+                  <SeriesCard
+                    key={item.id}
+                    image={item.poster_path}
+                    id={item.id}
+                    type="tv"
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="loading">
+                <CircularProgress color="inherit" />
+              </div>
+            )}
           </div>
+        </motion.div>
+      ) : (
+        <div className="loading">
+          <CircularProgress color="inherit" />
         </div>
-        {loading ? (
-          <div className="movies_list">
-            {toprated?.map((item) => (
-              <SeriesCard
-                key={item.id}
-                image={item.poster_path}
-                id={item.id}
-                type="tv"
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="loading">
-            <CircularProgress color="inherit" />
-          </div>
-        )}
-      </div>
-    </motion.div>
+      )}
+    </>
   );
 };
 

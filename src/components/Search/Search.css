@@ -18,8 +18,8 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-top: 20px;
-  padding-right: 20px;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
 }
 
 .search_close {
@@ -135,6 +135,9 @@
   }
   .search_resultcard {
     height: 280px;
+  }
+  .search_input {
+    font-size: 14px;
   }
 }
 

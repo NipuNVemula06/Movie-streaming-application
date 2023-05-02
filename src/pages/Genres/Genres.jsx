@@ -38,20 +38,12 @@ const Genres = () => {
     }, 1000);
   }, [genreID, mediatype, page]);
 
-  const transitionDuration = loading ? 0.5 : 2;
-
   const handlePageChange = (event, value) => {
     setPage(value);
   };
 
   return (
-    <motion.div
-      className="genres"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: transitionDuration }}
-    >
+    <motion.div className="genres">
       <Helmet>
         <title>StreamFlix | Genres</title>
       </Helmet>
@@ -104,22 +96,32 @@ const Genres = () => {
               />
             </div>
           </div>
-          <div className="genres_listcontainer">
-            {content?.map((item) => (
-              <div key={item.id}>
-                {mediatype === "movie" && (
-                  <MovieCard
-                    image={item.poster_path}
-                    id={item.id}
-                    type="movie"
-                  />
-                )}
-                {mediatype === "tv" && (
-                  <SeriesCard image={item.poster_path} id={item.id} type="tv" />
-                )}
-              </div>
-            ))}
-          </div>
+          {loading ? (
+            <div className="genres_listcontainer">
+              {content?.map((item) => (
+                <div key={item.id}>
+                  {mediatype === "movie" && (
+                    <MovieCard
+                      image={item.poster_path}
+                      id={item.id}
+                      type="movie"
+                    />
+                  )}
+                  {mediatype === "tv" && (
+                    <SeriesCard
+                      image={item.poster_path}
+                      id={item.id}
+                      type="tv"
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="loading">
+              <CircularProgress color="inherit" />
+            </div>
+          )}
         </div>
       </div>
     </motion.div>

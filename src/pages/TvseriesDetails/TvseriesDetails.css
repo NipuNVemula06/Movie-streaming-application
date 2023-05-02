@@ -180,6 +180,11 @@
     text-align: center;
   }
 
+  .seriesdetails_titlecontainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .seriesdetails_titleonimage {
     font-size: 30px;
   }

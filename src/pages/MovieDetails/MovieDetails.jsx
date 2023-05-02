@@ -32,10 +32,10 @@ const MovieDetails = () => {
           setGenres(response.data.genres);
         });
     };
-    fetchMovieDetails();
+    setTimeout(() => {
+      fetchMovieDetails();
+    }, 1000);
   }, []);
-
-  const transitionDuration = loading ? 0.5 : 2;
 
   const runTime = (runtime) => {
     // convert the run time into hours and minute
@@ -47,91 +47,95 @@ const MovieDetails = () => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: transitionDuration }}
-    >
-      <Helmet>
-        <title>{`StreamFlix | ${movie.title}`}</title>
-      </Helmet>
-      <div className="moviedetails">
-        <div className="moviedetails_imagecontainer">
-          {movie.backdrop_path ? (
-            <img
-              src={`${baseURL}${movie.backdrop_path}`}
-              alt={id}
-              className="moviedetails_backdrop_image"
-            />
-          ) : (
-            <div className="moviedetails_nobackdrop_image"></div>
-          )}
-          <div className="moviedetails_titleonimagecontainer">
-            <span className="moviedetails_titleonimage">
-              {movie.original_title}
-            </span>
-          </div>
-        </div>
-        <div className="moviedetails_container">
-          <div className="moviedetails_content">
-            <div className="moviedetails_postercontainer">
-              <img
-                src={`${baseURL}${movie.poster_path}`}
-                alt={id}
-                className="moviedetails_poster"
-              />
-            </div>
-            <div className="moviedetails_contentcontainer">
-              <div className="moviedetails_titlecontainer">
-                <span className="moviedetails_title">
-                  {movie.title} -
-                  <span className="moviedetails_releasedate">
-                    {movie.release_date?.split("-")[0]}
-                  </span>
+    <>
+      {loading ? (
+        <motion.div>
+          <Helmet>
+            <title>{`StreamFlix | ${movie.title}`}</title>
+          </Helmet>
+          <div className="moviedetails">
+            <div className="moviedetails_imagecontainer">
+              {movie.backdrop_path ? (
+                <img
+                  src={`${baseURL}${movie.backdrop_path}`}
+                  alt={id}
+                  className="moviedetails_backdrop_image"
+                />
+              ) : (
+                <div className="moviedetails_nobackdrop_image"></div>
+              )}
+              <div className="moviedetails_titleonimagecontainer">
+                <span className="moviedetails_titleonimage">
+                  {movie.original_title}
                 </span>
               </div>
-              <p className="moviedetails_tagline">{movie.tagline}</p>
-              <div className="moviedetails_runtimecontainer">
-                <span>Runtime - </span> <span>{runTime(movie.runtime)}</span>
-              </div>
-              <div className="moviedetails_genres">
-                {genres?.map((item) => (
-                  <span key={item.id} className="moviedetails_genre">
-                    {item.name}
-                  </span>
-                ))}
-              </div>
-              <span className="moviedetails_desc">{movie.overview}</span>
-              <div className="moviedetails_buttons">
-                <div
-                  className="moviedetails_watchtrailerbutton"
-                  onClick={() => setWatchTrailer(true)}
-                >
-                  <span>Watch Trailer</span>
-                  <FiPlay size={20} />
-                </div>
-                <div className="moviedetails_bookmark">
-                  <BsBookmark className="moviedetails_bookmarkicon" />
-                </div>
-                <div className="moviedetails_share">
-                  <BsShare className="moviedetails_shareicon" />
-                </div>
-              </div>
             </div>
+            <div className="moviedetails_container">
+              <div className="moviedetails_content">
+                <div className="moviedetails_postercontainer">
+                  <img
+                    src={`${baseURL}${movie.poster_path}`}
+                    alt={id}
+                    className="moviedetails_poster"
+                  />
+                </div>
+                <div className="moviedetails_contentcontainer">
+                  <div className="moviedetails_titlecontainer">
+                    <span className="moviedetails_title">
+                      {movie.title} -
+                      <span className="moviedetails_releasedate">
+                        {movie.release_date?.split("-")[0]}
+                      </span>
+                    </span>
+                  </div>
+                  <p className="moviedetails_tagline">{movie.tagline}</p>
+                  <div className="moviedetails_runtimecontainer">
+                    <span>Runtime - </span>{" "}
+                    <span>{runTime(movie.runtime)}</span>
+                  </div>
+                  <div className="moviedetails_genres">
+                    {genres?.map((item) => (
+                      <span key={item.id} className="moviedetails_genre">
+                        {item.name}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="moviedetails_desc">{movie.overview}</span>
+                  <div className="moviedetails_buttons">
+                    <div
+                      className="moviedetails_watchtrailerbutton"
+                      onClick={() => setWatchTrailer(true)}
+                    >
+                      <span>Watch Trailer</span>
+                      <FiPlay size={20} />
+                    </div>
+                    <div className="moviedetails_bookmark">
+                      <BsBookmark className="moviedetails_bookmarkicon" />
+                    </div>
+                    <div className="moviedetails_share">
+                      <BsShare className="moviedetails_shareicon" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <Cast id={id} mediatype={media_type} />
+              <Similar id={id} mediatype={media_type} />
+            </div>
+            {watchtrailer && (
+              <Trailer
+                id={id}
+                setWatchTrailer={setWatchTrailer}
+                mediatype={media_type}
+              />
+            )}
           </div>
-          <Cast id={id} mediatype={media_type} />
-          <Similar id={id} mediatype={media_type} />
+        </motion.div>
+      ) : (
+        <div className="loading">
+          <CircularProgress color="inherit" />
         </div>
-        {watchtrailer && (
-          <Trailer
-            id={id}
-            setWatchTrailer={setWatchTrailer}
-            mediatype={media_type}
-          />
-        )}
-      </div>
-    </motion.div>
+      )}
+    </>
   );
 };
 

@@ -5,13 +5,7 @@ import { motion } from "framer-motion";
 
 const NotFound = () => {
   return (
-    <motion.div
-      className="notfound"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 1 }}
-    >
+    <motion.div className="notfound">
       <Helmet>
         <title>StreamFlix | Page Not Found</title>
       </Helmet>

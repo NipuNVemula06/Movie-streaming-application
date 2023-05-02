@@ -67,8 +67,8 @@ const Knownfor = ({ id }) => {
               },
             }}
           >
-            {knownfor.map((item) => (
-              <SwiperSlide key={item.id}>
+            {knownfor.map((item, index) => (
+              <SwiperSlide key={index}>
                 <div className="knownfor_card">
                   {item.poster_path ? (
                     <img
